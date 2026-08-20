@@ -1,0 +1,2318 @@
+{
+  "project": "T1D-UOM",
+  "purpose": "GRU input contract audit",
+  "read_only": true,
+  "sequence_input_directory": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_sequence_inputs",
+  "frozen_cohort": [
+    "UoM2301",
+    "UoM2302",
+    "UoM2304",
+    "UoM2305",
+    "UoM2306",
+    "UoM2307",
+    "UoM2308",
+    "UoM2309",
+    "UoM2313",
+    "UoM2314",
+    "UoM2401",
+    "UoM2403",
+    "UoM2405"
+  ],
+  "architecture": {
+    "glucose": "Glucose -> GRU -> zG",
+    "insulin": "Insulin -> GRU -> zI",
+    "nutrition": "Nutrition -> GRU -> zN",
+    "activity": "Activity -> GRU -> zA",
+    "sleep": "Sleep -> GRU -> zS",
+    "fusion": "zG,zI,zN,zA,zS -> MLP Fusion",
+    "downstream": "MLP Fusion -> Unified Patient State -> DIGITAL TWIN -> Prediction / What-if -> Interactive UI"
+  },
+  "file_count": 86,
+  "total_rows": 703430,
+  "modality_contract": {
+    "glucose": {
+      "file_count": 13,
+      "feature_dimensions": [
+        1
+      ],
+      "timestamp_columns": [
+        "bg_ts"
+      ],
+      "records": [
+        {
+          "participant": "UoM2301",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2301.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 45768
+        },
+        {
+          "participant": "UoM2302",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2302.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 13656
+        },
+        {
+          "participant": "UoM2304",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2304.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 39512
+        },
+        {
+          "participant": "UoM2305",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2305.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 7190
+        },
+        {
+          "participant": "UoM2306",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2306.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 11710
+        },
+        {
+          "participant": "UoM2307",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2307.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 8385
+        },
+        {
+          "participant": "UoM2308",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2308.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 28694
+        },
+        {
+          "participant": "UoM2309",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2309.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 20665
+        },
+        {
+          "participant": "UoM2313",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2313.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 30832
+        },
+        {
+          "participant": "UoM2314",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2314.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 12783
+        },
+        {
+          "participant": "UoM2401",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2401.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 15047
+        },
+        {
+          "participant": "UoM2403",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2403.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 12860
+        },
+        {
+          "participant": "UoM2405",
+          "modality": "glucose",
+          "relative_path": "Glucose Data/UoMGlucose2405.csv",
+          "timestamp_column": "bg_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bg_ts",
+            "value"
+          ],
+          "feature_columns": [
+            "value"
+          ],
+          "row_count": 12547
+        }
+      ]
+    },
+    "insulin": {
+      "file_count": 25,
+      "feature_dimensions": [
+        1,
+        2
+      ],
+      "timestamp_columns": [
+        "basal_ts",
+        "bolus_ts"
+      ],
+      "records": [
+        {
+          "participant": "UoM2302",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2302.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 34
+        },
+        {
+          "participant": "UoM2304",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2304.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 228
+        },
+        {
+          "participant": "UoM2305",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2305.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 31
+        },
+        {
+          "participant": "UoM2306",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2306.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 82
+        },
+        {
+          "participant": "UoM2307",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2307.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 6890
+        },
+        {
+          "participant": "UoM2308",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2308.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 806
+        },
+        {
+          "participant": "UoM2309",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2309.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 625
+        },
+        {
+          "participant": "UoM2313",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2313.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 101
+        },
+        {
+          "participant": "UoM2314",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2314.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 91
+        },
+        {
+          "participant": "UoM2401",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2401.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 95
+        },
+        {
+          "participant": "UoM2403",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2403.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 12
+        },
+        {
+          "participant": "UoM2405",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Basal Data/UoMBasal2405.csv",
+          "timestamp_column": "basal_ts",
+          "column_count": 3,
+          "feature_count": 2,
+          "columns": [
+            "basal_ts",
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "feature_columns": [
+            "basal_dose",
+            "insulin_kind"
+          ],
+          "row_count": 159
+        },
+        {
+          "participant": "UoM2301",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2301.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 677
+        },
+        {
+          "participant": "UoM2302",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2302.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 178
+        },
+        {
+          "participant": "UoM2304",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2304.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 204
+        },
+        {
+          "participant": "UoM2305",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2305.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 166
+        },
+        {
+          "participant": "UoM2306",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2306.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 519
+        },
+        {
+          "participant": "UoM2307",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2307.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 524
+        },
+        {
+          "participant": "UoM2308",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2308.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 396
+        },
+        {
+          "participant": "UoM2309",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2309.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 289
+        },
+        {
+          "participant": "UoM2313",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2313.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 266
+        },
+        {
+          "participant": "UoM2314",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2314.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 426
+        },
+        {
+          "participant": "UoM2401",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2401.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 246
+        },
+        {
+          "participant": "UoM2403",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2403.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 322
+        },
+        {
+          "participant": "UoM2405",
+          "modality": "insulin",
+          "relative_path": "Insulin Data/Bolus Data/UoMBolus2405.csv",
+          "timestamp_column": "bolus_ts",
+          "column_count": 2,
+          "feature_count": 1,
+          "columns": [
+            "bolus_ts",
+            "bolus_dose"
+          ],
+          "feature_columns": [
+            "bolus_dose"
+          ],
+          "row_count": 289
+        }
+      ]
+    },
+    "nutrition": {
+      "file_count": 13,
+      "feature_dimensions": [
+        6
+      ],
+      "timestamp_columns": [
+        "meal_ts"
+      ],
+      "records": [
+        {
+          "participant": "UoM2301",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2301.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 302
+        },
+        {
+          "participant": "UoM2302",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2302.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 220
+        },
+        {
+          "participant": "UoM2304",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2304.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 203
+        },
+        {
+          "participant": "UoM2305",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2305.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 127
+        },
+        {
+          "participant": "UoM2306",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2306.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 367
+        },
+        {
+          "participant": "UoM2307",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2307.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 233
+        },
+        {
+          "participant": "UoM2308",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2308.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 243
+        },
+        {
+          "participant": "UoM2309",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2309.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 213
+        },
+        {
+          "participant": "UoM2313",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2313.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 184
+        },
+        {
+          "participant": "UoM2314",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2314.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 558
+        },
+        {
+          "participant": "UoM2401",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2401.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 488
+        },
+        {
+          "participant": "UoM2403",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2403.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 181
+        },
+        {
+          "participant": "UoM2405",
+          "modality": "nutrition",
+          "relative_path": "Nutrition Data/UoMNutrition2405.csv",
+          "timestamp_column": "meal_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "meal_ts",
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "feature_columns": [
+            "meal_type",
+            "meal_tag",
+            "carbs_g",
+            "prot_g",
+            "fat_g",
+            "fibre_g"
+          ],
+          "row_count": 256
+        }
+      ]
+    },
+    "activity": {
+      "file_count": 13,
+      "feature_dimensions": [
+        12
+      ],
+      "timestamp_columns": [
+        "activity_ts"
+      ],
+      "records": [
+        {
+          "participant": "UoM2301",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2301.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 10203
+        },
+        {
+          "participant": "UoM2302",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2302.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 19351
+        },
+        {
+          "participant": "UoM2304",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2304.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 18824
+        },
+        {
+          "participant": "UoM2305",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2305.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 26407
+        },
+        {
+          "participant": "UoM2306",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2306.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 11939
+        },
+        {
+          "participant": "UoM2307",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2307.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 13116
+        },
+        {
+          "participant": "UoM2308",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2308.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 10561
+        },
+        {
+          "participant": "UoM2309",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2309.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 11587
+        },
+        {
+          "participant": "UoM2313",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2313.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 16062
+        },
+        {
+          "participant": "UoM2314",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2314.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 12757
+        },
+        {
+          "participant": "UoM2401",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2401.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 10337
+        },
+        {
+          "participant": "UoM2403",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2403.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 11548
+        },
+        {
+          "participant": "UoM2405",
+          "modality": "activity",
+          "relative_path": "Activity Data/UoMActivity2405.csv",
+          "timestamp_column": "activity_ts",
+          "column_count": 13,
+          "feature_count": 12,
+          "columns": [
+            "activity_ts",
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "feature_columns": [
+            "activity_type",
+            "active_Kcal",
+            "step_count",
+            "distance_m",
+            "duration_s",
+            "active_time_s",
+            "start_time_s",
+            "start_time_offset_s",
+            "met",
+            "intensity",
+            "motion_intensity_mean",
+            "motion_intensity_max"
+          ],
+          "row_count": 11994
+        }
+      ]
+    },
+    "sleep": {
+      "file_count": 22,
+      "feature_dimensions": [
+        6,
+        14
+      ],
+      "timestamp_columns": [
+        "sleep_ts",
+        "start_date_ts"
+      ],
+      "records": [
+        {
+          "participant": "UoM2302",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2302sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 129
+        },
+        {
+          "participant": "UoM2304",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2304sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 116
+        },
+        {
+          "participant": "UoM2306",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2306sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 84
+        },
+        {
+          "participant": "UoM2307",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2307sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 90
+        },
+        {
+          "participant": "UoM2308",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2308sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 71
+        },
+        {
+          "participant": "UoM2309",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2309sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 83
+        },
+        {
+          "participant": "UoM2313",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2313sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 94
+        },
+        {
+          "participant": "UoM2314",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2314sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 88
+        },
+        {
+          "participant": "UoM2401",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2401sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 69
+        },
+        {
+          "participant": "UoM2403",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2403sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 86
+        },
+        {
+          "participant": "UoM2405",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoM2405sleeptime.csv",
+          "timestamp_column": "start_date_ts",
+          "column_count": 15,
+          "feature_count": 14,
+          "columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_date_ts",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "feature_columns": [
+            "calendar_date",
+            "duration_in_sec",
+            "start_time_offset_s",
+            "unmeasurable_sleep_s",
+            "deep_sleep_s",
+            "light_sleep_s",
+            "rem_sleep_s",
+            "awake_s",
+            "sleep_levels_map_deep",
+            "sleep_levels_map_light",
+            "sleep_levels_map_awake",
+            "sleep_levels_map_rem",
+            "sleep_levels_map_unmeasurable",
+            "validation"
+          ],
+          "row_count": 78
+        },
+        {
+          "participant": "UoM2301",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2301.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 24193
+        },
+        {
+          "participant": "UoM2302",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2302.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 21889
+        },
+        {
+          "participant": "UoM2304",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2304.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 31969
+        },
+        {
+          "participant": "UoM2305",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2305.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 24193
+        },
+        {
+          "participant": "UoM2306",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2306.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 24193
+        },
+        {
+          "participant": "UoM2307",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2307.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 24193
+        },
+        {
+          "participant": "UoM2308",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2308.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 24192
+        },
+        {
+          "participant": "UoM2309",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2309.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 24769
+        },
+        {
+          "participant": "UoM2313",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2313.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 9260
+        },
+        {
+          "participant": "UoM2401",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2401.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 29665
+        },
+        {
+          "participant": "UoM2405",
+          "modality": "sleep",
+          "relative_path": "Sleep Data/UoMsleep2405.csv",
+          "timestamp_column": "sleep_ts",
+          "column_count": 7,
+          "feature_count": 6,
+          "columns": [
+            "sleep_ts",
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "feature_columns": [
+            "step_count",
+            "heart_rate",
+            "current_activity_type_intensity",
+            "stress_level_value",
+            "sleep_level",
+            "resting_heart_rate"
+          ],
+          "row_count": 2360
+        }
+      ]
+    }
+  },
+  "consistency_status": {
+    "glucose": "PASS",
+    "insulin": "REQUIRES REVIEW",
+    "nutrition": "PASS",
+    "activity": "PASS",
+    "sleep": "REQUIRES REVIEW"
+  },
+  "sleep_representation": {
+    "sleep_summary_files": 11,
+    "sleep_timeseries_files": 11,
+    "single_sleep_branch_required": true,
+    "representation_selection_made": false
+  }
+}

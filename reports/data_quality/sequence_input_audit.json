@@ -1,0 +1,3836 @@
+{
+  "report_name": "T1D-UOM Sequence Input Audit",
+  "report_version": "3.0",
+  "read_only": true,
+  "project_root": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project",
+  "modeling_dataset": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_modeling",
+  "modeling_dataset_csv_count": 110,
+  "expected_modeling_csv_count": 110,
+  "all_participants": [
+    "UoM2301",
+    "UoM2302",
+    "UoM2303",
+    "UoM2304",
+    "UoM2305",
+    "UoM2306",
+    "UoM2307",
+    "UoM2308",
+    "UoM2309",
+    "UoM2310",
+    "UoM2312",
+    "UoM2313",
+    "UoM2314",
+    "UoM2315",
+    "UoM2320",
+    "UoM2401",
+    "UoM2403",
+    "UoM2404",
+    "UoM2405"
+  ],
+  "frozen_cohort": [
+    "UoM2301",
+    "UoM2302",
+    "UoM2304",
+    "UoM2305",
+    "UoM2306",
+    "UoM2307",
+    "UoM2308",
+    "UoM2309",
+    "UoM2313",
+    "UoM2314",
+    "UoM2401",
+    "UoM2403",
+    "UoM2405"
+  ],
+  "frozen_cohort_size": 13,
+  "additional_non_frozen_participants": [
+    "UoM2303",
+    "UoM2310",
+    "UoM2312",
+    "UoM2315",
+    "UoM2320",
+    "UoM2404"
+  ],
+  "frozen_files_audited": 86,
+  "manifest_status": {
+    "modeling_dataset_exclusions.json": "readable",
+    "modeling_dataset_manifest.json": "readable"
+  },
+  "architecture": {
+    "branches": {
+      "glucose": {
+        "encoder": "GRU",
+        "latent": "zG"
+      },
+      "insulin": {
+        "encoder": "GRU",
+        "latent": "zI"
+      },
+      "nutrition": {
+        "encoder": "GRU",
+        "latent": "zN"
+      },
+      "activity": {
+        "encoder": "GRU",
+        "latent": "zA"
+      },
+      "sleep": {
+        "encoder": "GRU",
+        "latent": "zS"
+      }
+    },
+    "fusion": {
+      "type": "MLP",
+      "inputs": [
+        "zG",
+        "zI",
+        "zN",
+        "zA",
+        "zS"
+      ],
+      "output": "Unified Patient State"
+    },
+    "downstream": {
+      "state": "DIGITAL TWIN",
+      "outputs": [
+        "Prediction",
+        "What-if"
+      ],
+      "interface": "Interactive UI"
+    }
+  },
+  "coverage": {
+    "UoM2301": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2302": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2304": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2305": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2306": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2307": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2308": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2309": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2313": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2314": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2401": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2403": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ],
+    "UoM2405": [
+      "activity",
+      "glucose",
+      "insulin",
+      "nutrition",
+      "sleep"
+    ]
+  },
+  "temporal_quality": {
+    "files_with_undetected_timestamp_column": [],
+    "files_with_timestamp_parse_failures": [],
+    "files_with_duplicate_timestamps": [
+      {
+        "file": "Activity Data/UoMActivity2301.csv",
+        "duplicate_timestamp_rows": 3067
+      },
+      {
+        "file": "Activity Data/UoMActivity2302.csv",
+        "duplicate_timestamp_rows": 6993
+      },
+      {
+        "file": "Activity Data/UoMActivity2304.csv",
+        "duplicate_timestamp_rows": 7384
+      },
+      {
+        "file": "Activity Data/UoMActivity2305.csv",
+        "duplicate_timestamp_rows": 20646
+      },
+      {
+        "file": "Activity Data/UoMActivity2306.csv",
+        "duplicate_timestamp_rows": 4077
+      },
+      {
+        "file": "Activity Data/UoMActivity2307.csv",
+        "duplicate_timestamp_rows": 4497
+      },
+      {
+        "file": "Activity Data/UoMActivity2308.csv",
+        "duplicate_timestamp_rows": 3917
+      },
+      {
+        "file": "Activity Data/UoMActivity2309.csv",
+        "duplicate_timestamp_rows": 3524
+      },
+      {
+        "file": "Activity Data/UoMActivity2313.csv",
+        "duplicate_timestamp_rows": 5280
+      },
+      {
+        "file": "Activity Data/UoMActivity2314.csv",
+        "duplicate_timestamp_rows": 4309
+      },
+      {
+        "file": "Activity Data/UoMActivity2401.csv",
+        "duplicate_timestamp_rows": 3375
+      },
+      {
+        "file": "Activity Data/UoMActivity2403.csv",
+        "duplicate_timestamp_rows": 4429
+      },
+      {
+        "file": "Activity Data/UoMActivity2405.csv",
+        "duplicate_timestamp_rows": 4123
+      },
+      {
+        "file": "Glucose Data/UoMGlucose2301.csv",
+        "duplicate_timestamp_rows": 7250
+      },
+      {
+        "file": "Glucose Data/UoMGlucose2304.csv",
+        "duplicate_timestamp_rows": 8613
+      },
+      {
+        "file": "Insulin Data/Basal Data/UoMBasal2304.csv",
+        "duplicate_timestamp_rows": 4
+      },
+      {
+        "file": "Insulin Data/Basal Data/UoMBasal2307.csv",
+        "duplicate_timestamp_rows": 6
+      },
+      {
+        "file": "Insulin Data/Basal Data/UoMBasal2308.csv",
+        "duplicate_timestamp_rows": 14
+      },
+      {
+        "file": "Insulin Data/Basal Data/UoMBasal2309.csv",
+        "duplicate_timestamp_rows": 8
+      },
+      {
+        "file": "Insulin Data/Basal Data/UoMBasal2405.csv",
+        "duplicate_timestamp_rows": 1
+      },
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2301.csv",
+        "duplicate_timestamp_rows": 65
+      },
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2304.csv",
+        "duplicate_timestamp_rows": 1
+      },
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2306.csv",
+        "duplicate_timestamp_rows": 30
+      },
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2307.csv",
+        "duplicate_timestamp_rows": 5
+      },
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2314.csv",
+        "duplicate_timestamp_rows": 8
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2301.csv",
+        "duplicate_timestamp_rows": 6
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2304.csv",
+        "duplicate_timestamp_rows": 1
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2314.csv",
+        "duplicate_timestamp_rows": 4
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2401.csv",
+        "duplicate_timestamp_rows": 1
+      },
+      {
+        "file": "Sleep Data/UoM2302sleeptime.csv",
+        "duplicate_timestamp_rows": 2
+      },
+      {
+        "file": "Sleep Data/UoM2306sleeptime.csv",
+        "duplicate_timestamp_rows": 1
+      },
+      {
+        "file": "Sleep Data/UoM2307sleeptime.csv",
+        "duplicate_timestamp_rows": 1
+      },
+      {
+        "file": "Sleep Data/UoM2309sleeptime.csv",
+        "duplicate_timestamp_rows": 1
+      }
+    ],
+    "files_with_out_of_order_timestamps": [
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2302.csv",
+        "out_of_order_transitions": 2
+      },
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2305.csv",
+        "out_of_order_transitions": 1
+      },
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2307.csv",
+        "out_of_order_transitions": 1
+      },
+      {
+        "file": "Insulin Data/Bolus Data/UoMBolus2403.csv",
+        "out_of_order_transitions": 1
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2301.csv",
+        "out_of_order_transitions": 5
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2302.csv",
+        "out_of_order_transitions": 1
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2304.csv",
+        "out_of_order_transitions": 29
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2309.csv",
+        "out_of_order_transitions": 6
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2313.csv",
+        "out_of_order_transitions": 1
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2314.csv",
+        "out_of_order_transitions": 4
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2401.csv",
+        "out_of_order_transitions": 1
+      },
+      {
+        "file": "Nutrition Data/UoMNutrition2405.csv",
+        "out_of_order_transitions": 9
+      }
+    ],
+    "duplicate_timestamps_are_blocking": false,
+    "out_of_order_timestamps_are_blocking": false,
+    "sequence_preparation_requirements": [
+      "Deterministic chronological ordering must be established.",
+      "Duplicate timestamps require an explicit deterministic tie policy.",
+      "No rows are removed by this audit.",
+      "No timestamps are modified by this audit."
+    ]
+  },
+  "family_summary": {
+    "activity": {
+      "files": 13,
+      "participants": [
+        "UoM2301",
+        "UoM2302",
+        "UoM2304",
+        "UoM2305",
+        "UoM2306",
+        "UoM2307",
+        "UoM2308",
+        "UoM2309",
+        "UoM2313",
+        "UoM2314",
+        "UoM2401",
+        "UoM2403",
+        "UoM2405"
+      ],
+      "rows": 184686,
+      "timestamp_columns": {
+        "activity_ts": 13
+      },
+      "timestamp_parse_failures": 0,
+      "missing_timestamps": 0,
+      "duplicate_timestamp_rows": 75621,
+      "out_of_order_transitions": 0
+    },
+    "basal_insulin": {
+      "files": 12,
+      "participants": [
+        "UoM2302",
+        "UoM2304",
+        "UoM2305",
+        "UoM2306",
+        "UoM2307",
+        "UoM2308",
+        "UoM2309",
+        "UoM2313",
+        "UoM2314",
+        "UoM2401",
+        "UoM2403",
+        "UoM2405"
+      ],
+      "rows": 9154,
+      "timestamp_columns": {
+        "basal_ts": 12
+      },
+      "timestamp_parse_failures": 0,
+      "missing_timestamps": 0,
+      "duplicate_timestamp_rows": 33,
+      "out_of_order_transitions": 0
+    },
+    "bolus_insulin": {
+      "files": 13,
+      "participants": [
+        "UoM2301",
+        "UoM2302",
+        "UoM2304",
+        "UoM2305",
+        "UoM2306",
+        "UoM2307",
+        "UoM2308",
+        "UoM2309",
+        "UoM2313",
+        "UoM2314",
+        "UoM2401",
+        "UoM2403",
+        "UoM2405"
+      ],
+      "rows": 4502,
+      "timestamp_columns": {
+        "bolus_ts": 13
+      },
+      "timestamp_parse_failures": 0,
+      "missing_timestamps": 0,
+      "duplicate_timestamp_rows": 109,
+      "out_of_order_transitions": 5
+    },
+    "glucose": {
+      "files": 13,
+      "participants": [
+        "UoM2301",
+        "UoM2302",
+        "UoM2304",
+        "UoM2305",
+        "UoM2306",
+        "UoM2307",
+        "UoM2308",
+        "UoM2309",
+        "UoM2313",
+        "UoM2314",
+        "UoM2401",
+        "UoM2403",
+        "UoM2405"
+      ],
+      "rows": 259649,
+      "timestamp_columns": {
+        "bg_ts": 13
+      },
+      "timestamp_parse_failures": 0,
+      "missing_timestamps": 0,
+      "duplicate_timestamp_rows": 15863,
+      "out_of_order_transitions": 0
+    },
+    "nutrition": {
+      "files": 13,
+      "participants": [
+        "UoM2301",
+        "UoM2302",
+        "UoM2304",
+        "UoM2305",
+        "UoM2306",
+        "UoM2307",
+        "UoM2308",
+        "UoM2309",
+        "UoM2313",
+        "UoM2314",
+        "UoM2401",
+        "UoM2403",
+        "UoM2405"
+      ],
+      "rows": 3575,
+      "timestamp_columns": {
+        "meal_ts": 13
+      },
+      "timestamp_parse_failures": 0,
+      "missing_timestamps": 0,
+      "duplicate_timestamp_rows": 12,
+      "out_of_order_transitions": 56
+    },
+    "sleep_summary": {
+      "files": 11,
+      "participants": [
+        "UoM2302",
+        "UoM2304",
+        "UoM2306",
+        "UoM2307",
+        "UoM2308",
+        "UoM2309",
+        "UoM2313",
+        "UoM2314",
+        "UoM2401",
+        "UoM2403",
+        "UoM2405"
+      ],
+      "rows": 988,
+      "timestamp_columns": {
+        "start_date_ts": 11
+      },
+      "timestamp_parse_failures": 0,
+      "missing_timestamps": 0,
+      "duplicate_timestamp_rows": 5,
+      "out_of_order_transitions": 0
+    },
+    "sleep_timeseries": {
+      "files": 11,
+      "participants": [
+        "UoM2301",
+        "UoM2302",
+        "UoM2304",
+        "UoM2305",
+        "UoM2306",
+        "UoM2307",
+        "UoM2308",
+        "UoM2309",
+        "UoM2313",
+        "UoM2401",
+        "UoM2405"
+      ],
+      "rows": 240876,
+      "timestamp_columns": {
+        "sleep_ts": 11
+      },
+      "timestamp_parse_failures": 0,
+      "missing_timestamps": 0,
+      "duplicate_timestamp_rows": 0,
+      "out_of_order_transitions": 0
+    }
+  },
+  "sleep_representation": {
+    "sleep_summary_files": 11,
+    "sleep_timeseries_files": 11,
+    "neural_sleep_branches": 1,
+    "latent": "zS"
+  },
+  "file_results": [
+    {
+      "file": "Activity Data/UoMActivity2301.csv",
+      "participant": "UoM2301",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 10203,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 10203,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 7136,
+        "duplicate_timestamp_rows": 3067,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-01T05:45:00",
+        "maximum": "2024-01-18T23:45:00",
+        "delta_seconds": {
+          "count": 7135,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 1328.997897687456,
+          "maximum_seconds": 950400.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 132639,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2302.csv",
+      "participant": "UoM2302",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 19351,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 19351,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 12358,
+        "duplicate_timestamp_rows": 6993,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-01T02:00:00",
+        "maximum": "2024-02-21T01:00:00",
+        "delta_seconds": {
+          "count": 12357,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 999.5630007283321,
+          "maximum_seconds": 259200.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 251563,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2304.csv",
+      "participant": "UoM2304",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 18824,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 18824,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 11440,
+        "duplicate_timestamp_rows": 7384,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-08T15:00:00",
+        "maximum": "2024-02-05T13:00:00",
+        "delta_seconds": {
+          "count": 11439,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 905.7435090479937,
+          "maximum_seconds": 36000.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 244712,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2305.csv",
+      "participant": "UoM2305",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 26407,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 26407,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 5761,
+        "duplicate_timestamp_rows": 20646,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-17T00:00:00",
+        "maximum": "2023-12-16T00:00:00",
+        "delta_seconds": {
+          "count": 5760,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 900.0,
+          "maximum_seconds": 900.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 343291,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2306.csv",
+      "participant": "UoM2306",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 11939,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 11939,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 7862,
+        "duplicate_timestamp_rows": 4077,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-18T02:00:00",
+        "maximum": "2024-01-11T00:45:00",
+        "delta_seconds": {
+          "count": 7861,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 933.659839715049,
+          "maximum_seconds": 34200.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 155207,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2307.csv",
+      "participant": "UoM2307",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 13116,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 13116,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 8619,
+        "duplicate_timestamp_rows": 4497,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-13T01:00:00",
+        "maximum": "2024-01-11T00:00:00",
+        "delta_seconds": {
+          "count": 8618,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 901.879786493386,
+          "maximum_seconds": 4500.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 170508,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2308.csv",
+      "participant": "UoM2308",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 10561,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 10561,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 6644,
+        "duplicate_timestamp_rows": 3917,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-12-02T13:30:00",
+        "maximum": "2024-03-14T23:45:00",
+        "delta_seconds": {
+          "count": 6643,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 1345.1904260123438,
+          "maximum_seconds": 1188000.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 137293,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2309.csv",
+      "participant": "UoM2309",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 11587,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 11587,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 8063,
+        "duplicate_timestamp_rows": 3524,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-06T00:00:00",
+        "maximum": "2024-04-30T00:45:00",
+        "delta_seconds": {
+          "count": 8062,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 900.5581741503349,
+          "maximum_seconds": 4500.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 150631,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2313.csv",
+      "participant": "UoM2313",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 16062,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 16062,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 10782,
+        "duplicate_timestamp_rows": 5280,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-07T15:30:00",
+        "maximum": "2024-02-28T00:00:00",
+        "delta_seconds": {
+          "count": 10781,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 900.4174009832112,
+          "maximum_seconds": 3600.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 208806,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2314.csv",
+      "participant": "UoM2314",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 12757,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 12757,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 8448,
+        "duplicate_timestamp_rows": 4309,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-06T00:00:00",
+        "maximum": "2024-02-01T23:45:00",
+        "delta_seconds": {
+          "count": 8447,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 900.0,
+          "maximum_seconds": 900.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 165841,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2401.csv",
+      "participant": "UoM2401",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 10337,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 10337,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 6962,
+        "duplicate_timestamp_rows": 3375,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-18T00:00:00",
+        "maximum": "2024-05-02T01:00:00",
+        "delta_seconds": {
+          "count": 6961,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 919.0058899583394,
+          "maximum_seconds": 47700.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 134381,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2403.csv",
+      "participant": "UoM2403",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 11548,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 11548,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 7119,
+        "duplicate_timestamp_rows": 4429,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-04-01T01:00:00",
+        "maximum": "2024-06-29T05:45:00",
+        "delta_seconds": {
+          "count": 7118,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 1082.705816240517,
+          "maximum_seconds": 172800.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 150124,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Activity Data/UoMActivity2405.csv",
+      "participant": "UoM2405",
+      "modality_family": "activity",
+      "project_modality": "activity",
+      "row_count": 11994,
+      "column_count": 13,
+      "headers": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "timestamp_column": "activity_ts",
+      "timestamp": {
+        "non_missing_count": 11994,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 7871,
+        "duplicate_timestamp_rows": 4123,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-06-10T01:00:00",
+        "maximum": "2024-09-06T18:15:00",
+        "delta_seconds": {
+          "count": 7870,
+          "minimum_seconds": 900.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 973.989834815756,
+          "maximum_seconds": 410400.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 155922,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2301.csv",
+      "participant": "UoM2301",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 45768,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 45768,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 38518,
+        "duplicate_timestamp_rows": 7250,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-01T00:04:00",
+        "maximum": "2024-01-18T23:58:00",
+        "delta_seconds": {
+          "count": 38517,
+          "minimum_seconds": 60.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 246.73884258898667,
+          "maximum_seconds": 8400.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 91536,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2302.csv",
+      "participant": "UoM2302",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 13656,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 13656,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 13656,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-09-04T00:03:00",
+        "maximum": "2024-02-20T11:20:00",
+        "delta_seconds": {
+          "count": 13655,
+          "minimum_seconds": 60.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 1072.297326986452,
+          "maximum_seconds": 126660.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 27312,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2304.csv",
+      "participant": "UoM2304",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 39512,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 39512,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 30899,
+        "duplicate_timestamp_rows": 8613,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-08T00:03:00",
+        "maximum": "2024-02-01T10:03:00",
+        "delta_seconds": {
+          "count": 30898,
+          "minimum_seconds": 60.0,
+          "median_seconds": 240.0,
+          "mean_seconds": 325.5356333743284,
+          "maximum_seconds": 2993880.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 79024,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2305.csv",
+      "participant": "UoM2305",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 7190,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 7190,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 7190,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-16T00:04:00",
+        "maximum": "2024-01-18T23:50:00",
+        "delta_seconds": {
+          "count": 7189,
+          "minimum_seconds": 60.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 769.0582834886633,
+          "maximum_seconds": 16320.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 14380,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2306.csv",
+      "participant": "UoM2306",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 11710,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 11710,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 11710,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-01T00:33:00",
+        "maximum": "2024-01-11T13:02:00",
+        "delta_seconds": {
+          "count": 11709,
+          "minimum_seconds": 60.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 756.4898795798103,
+          "maximum_seconds": 12840.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 23420,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2307.csv",
+      "participant": "UoM2307",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 8385,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 8385,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 8385,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-06T00:01:00",
+        "maximum": "2023-12-05T15:10:00",
+        "delta_seconds": {
+          "count": 8384,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 305.3602099236641,
+          "maximum_seconds": 13200.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 16770,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2308.csv",
+      "participant": "UoM2308",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 28694,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 28694,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 28694,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-28T16:05:00",
+        "maximum": "2024-03-13T23:57:00",
+        "delta_seconds": {
+          "count": 28693,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 320.1728644617154,
+          "maximum_seconds": 197880.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 57388,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2309.csv",
+      "participant": "UoM2309",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 20665,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 20665,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 20665,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-06T00:37:00",
+        "maximum": "2024-05-01T14:45:00",
+        "delta_seconds": {
+          "count": 20664,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 357.862950058072,
+          "maximum_seconds": 323400.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 41330,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2313.csv",
+      "participant": "UoM2313",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 30832,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 30832,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 30832,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-13T00:00:00",
+        "maximum": "2024-02-20T13:36:00",
+        "delta_seconds": {
+          "count": 30831,
+          "minimum_seconds": 60.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 279.0230612046317,
+          "maximum_seconds": 90900.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 61664,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2314.csv",
+      "participant": "UoM2314",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 12783,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 12783,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 12783,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-06T00:12:00",
+        "maximum": "2024-02-05T09:25:00",
+        "delta_seconds": {
+          "count": 12782,
+          "minimum_seconds": 60.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 617.710843373494,
+          "maximum_seconds": 10800.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 25566,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2401.csv",
+      "participant": "UoM2401",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 15047,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 15047,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 15047,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-01T00:13:00",
+        "maximum": "2024-05-02T23:47:00",
+        "delta_seconds": {
+          "count": 15046,
+          "minimum_seconds": 60.0,
+          "median_seconds": 540.0,
+          "mean_seconds": 528.1961983251363,
+          "maximum_seconds": 25320.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 30094,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2403.csv",
+      "participant": "UoM2403",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 12860,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 12860,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 12860,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-03-01T00:39:00",
+        "maximum": "2024-06-25T13:48:00",
+        "delta_seconds": {
+          "count": 12859,
+          "minimum_seconds": 60.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 783.0888871607434,
+          "maximum_seconds": 52860.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 25720,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Glucose Data/UoMGlucose2405.csv",
+      "participant": "UoM2405",
+      "modality_family": "glucose",
+      "project_modality": "glucose",
+      "row_count": 12547,
+      "column_count": 2,
+      "headers": [
+        "bg_ts",
+        "value"
+      ],
+      "timestamp_column": "bg_ts",
+      "timestamp": {
+        "non_missing_count": 12547,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 12547,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-05-28T00:00:00",
+        "maximum": "2024-09-03T16:10:00",
+        "delta_seconds": {
+          "count": 12546,
+          "minimum_seconds": 60.0,
+          "median_seconds": 900.0,
+          "mean_seconds": 679.5313247250119,
+          "maximum_seconds": 11160.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 25094,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2302.csv",
+      "participant": "UoM2302",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 34,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 34,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 34,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-09-04T08:42:00",
+        "maximum": "2024-02-15T21:16:00",
+        "delta_seconds": {
+          "count": 33,
+          "minimum_seconds": 67800.0,
+          "median_seconds": 96720.0,
+          "mean_seconds": 430752.7272727273,
+          "maximum_seconds": 3975420.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 102,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2304.csv",
+      "participant": "UoM2304",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 228,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 228,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 224,
+        "duplicate_timestamp_rows": 4,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-12-31T10:00:00",
+        "maximum": "2024-02-01T10:00:00",
+        "delta_seconds": {
+          "count": 223,
+          "minimum_seconds": 60.0,
+          "median_seconds": 7200.0,
+          "mean_seconds": 12398.206278026906,
+          "maximum_seconds": 28800.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 684,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2305.csv",
+      "participant": "UoM2305",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 31,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 31,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 31,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-17T23:15:00",
+        "maximum": "2024-01-11T22:26:00",
+        "delta_seconds": {
+          "count": 30,
+          "minimum_seconds": 82080.0,
+          "median_seconds": 86520.0,
+          "mean_seconds": 247582.0,
+          "maximum_seconds": 1813380.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 93,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2306.csv",
+      "participant": "UoM2306",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 82,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 82,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 82,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-18T22:47:00",
+        "maximum": "2024-01-10T22:18:00",
+        "delta_seconds": {
+          "count": 81,
+          "minimum_seconds": 73740.0,
+          "median_seconds": 86580.0,
+          "mean_seconds": 89578.51851851853,
+          "maximum_seconds": 176040.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 246,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2307.csv",
+      "participant": "UoM2307",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 6890,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 6890,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 6884,
+        "duplicate_timestamp_rows": 6,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-10T00:00:00",
+        "maximum": "2023-12-05T15:02:00",
+        "delta_seconds": {
+          "count": 6883,
+          "minimum_seconds": 60.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 710.8121458666279,
+          "maximum_seconds": 18060.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 20670,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2308.csv",
+      "participant": "UoM2308",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 806,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 806,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 792,
+        "duplicate_timestamp_rows": 14,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-28T21:51:00",
+        "maximum": "2024-02-23T08:00:00",
+        "delta_seconds": {
+          "count": 791,
+          "minimum_seconds": 60.0,
+          "median_seconds": 7200.0,
+          "mean_seconds": 9439.873577749684,
+          "maximum_seconds": 32400.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 2418,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2309.csv",
+      "participant": "UoM2309",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 625,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 625,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 617,
+        "duplicate_timestamp_rows": 8,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-05T00:00:00",
+        "maximum": "2024-05-01T15:00:00",
+        "delta_seconds": {
+          "count": 616,
+          "minimum_seconds": 60.0,
+          "median_seconds": 12600.0,
+          "mean_seconds": 12150.0,
+          "maximum_seconds": 39120.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 1875,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2313.csv",
+      "participant": "UoM2313",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 101,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 101,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 101,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-10T20:28:00",
+        "maximum": "2024-02-19T17:59:00",
+        "delta_seconds": {
+          "count": 100,
+          "minimum_seconds": 69240.0,
+          "median_seconds": 86520.0,
+          "mean_seconds": 113958.6,
+          "maximum_seconds": 518640.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 303,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2314.csv",
+      "participant": "UoM2314",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 91,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 91,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 91,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-31T23:10:00",
+        "maximum": "2024-02-03T22:52:00",
+        "delta_seconds": {
+          "count": 90,
+          "minimum_seconds": 30840.0,
+          "median_seconds": 86520.0,
+          "mean_seconds": 91188.0,
+          "maximum_seconds": 230040.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 273,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2401.csv",
+      "participant": "UoM2401",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 95,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 95,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 95,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-01-25T21:20:00",
+        "maximum": "2024-05-01T22:12:00",
+        "delta_seconds": {
+          "count": 94,
+          "minimum_seconds": 74100.0,
+          "median_seconds": 86430.0,
+          "mean_seconds": 89190.63829787234,
+          "maximum_seconds": 178440.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 285,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2403.csv",
+      "participant": "UoM2403",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 12,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 12,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 12,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-05-30T17:37:00",
+        "maximum": "2024-03-20T15:15:00",
+        "delta_seconds": {
+          "count": 11,
+          "minimum_seconds": 86580.0,
+          "median_seconds": 1208040.0,
+          "mean_seconds": 2316316.3636363638,
+          "maximum_seconds": 8020080.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 36,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Basal Data/UoMBasal2405.csv",
+      "participant": "UoM2405",
+      "modality_family": "basal_insulin",
+      "project_modality": "insulin",
+      "row_count": 159,
+      "column_count": 3,
+      "headers": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "timestamp_column": "basal_ts",
+      "timestamp": {
+        "non_missing_count": 159,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 158,
+        "duplicate_timestamp_rows": 1,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-05-28T19:20:00",
+        "maximum": "2024-08-28T07:12:00",
+        "delta_seconds": {
+          "count": 157,
+          "minimum_seconds": 900.0,
+          "median_seconds": 44160.0,
+          "mean_seconds": 50351.08280254777,
+          "maximum_seconds": 131400.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 477,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2301.csv",
+      "participant": "UoM2301",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 677,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 677,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 612,
+        "duplicate_timestamp_rows": 65,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-10T12:43:00",
+        "maximum": "2024-01-18T08:52:00",
+        "delta_seconds": {
+          "count": 611,
+          "minimum_seconds": 60.0,
+          "median_seconds": 4140.0,
+          "mean_seconds": 9734.43535188216,
+          "maximum_seconds": 67800.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 1354,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2302.csv",
+      "participant": "UoM2302",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 178,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 178,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 178,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 2,
+        "minimum": "2023-01-14T19:50:00",
+        "maximum": "2024-02-17T19:00:00",
+        "delta_seconds": {
+          "count": 177,
+          "minimum_seconds": 2700.0,
+          "median_seconds": 28800.0,
+          "mean_seconds": 194749.15254237287,
+          "maximum_seconds": 20484000.0
+        }
+      },
+      "missing_cells": 1,
+      "total_cells": 356,
+      "missingness_fraction": 0.0028089887640449437
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2304.csv",
+      "participant": "UoM2304",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 204,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 204,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 203,
+        "duplicate_timestamp_rows": 1,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-12-31T14:10:00",
+        "maximum": "2024-01-31T19:47:00",
+        "delta_seconds": {
+          "count": 202,
+          "minimum_seconds": 120.0,
+          "median_seconds": 660.0,
+          "mean_seconds": 13359.50495049505,
+          "maximum_seconds": 90540.0
+        }
+      },
+      "missing_cells": 1,
+      "total_cells": 408,
+      "missingness_fraction": 0.0024509803921568627
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2305.csv",
+      "participant": "UoM2305",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 166,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 166,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 166,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 1,
+        "minimum": "2023-01-07T19:00:00",
+        "maximum": "2024-01-16T16:30:00",
+        "delta_seconds": {
+          "count": 165,
+          "minimum_seconds": 1800.0,
+          "median_seconds": 17100.0,
+          "mean_seconds": 195785.45454545456,
+          "maximum_seconds": 26156700.0
+        }
+      },
+      "missing_cells": 2,
+      "total_cells": 332,
+      "missingness_fraction": 0.006024096385542169
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2306.csv",
+      "participant": "UoM2306",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 519,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 519,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 489,
+        "duplicate_timestamp_rows": 30,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-01T14:11:00",
+        "maximum": "2024-01-10T22:18:00",
+        "delta_seconds": {
+          "count": 488,
+          "minimum_seconds": 480.0,
+          "median_seconds": 15960.0,
+          "mean_seconds": 17941.844262295082,
+          "maximum_seconds": 78720.0
+        }
+      },
+      "missing_cells": 96,
+      "total_cells": 1038,
+      "missingness_fraction": 0.09248554913294797
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2307.csv",
+      "participant": "UoM2307",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 524,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 524,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 519,
+        "duplicate_timestamp_rows": 5,
+        "out_of_order_transitions": 1,
+        "minimum": "2023-10-10T08:24:00",
+        "maximum": "2023-12-05T13:10:00",
+        "delta_seconds": {
+          "count": 518,
+          "minimum_seconds": 60.0,
+          "median_seconds": 5250.0,
+          "mean_seconds": 9373.667953667953,
+          "maximum_seconds": 52440.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 1048,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2308.csv",
+      "participant": "UoM2308",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 396,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 396,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 396,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-29T10:03:00",
+        "maximum": "2024-02-23T09:50:00",
+        "delta_seconds": {
+          "count": 395,
+          "minimum_seconds": 60.0,
+          "median_seconds": 16620.0,
+          "mean_seconds": 18809.164556962027,
+          "maximum_seconds": 68160.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 792,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2309.csv",
+      "participant": "UoM2309",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 289,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 289,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 289,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-05T10:35:00",
+        "maximum": "2024-04-30T20:11:00",
+        "delta_seconds": {
+          "count": 288,
+          "minimum_seconds": 60.0,
+          "median_seconds": 16200.0,
+          "mean_seconds": 25620.0,
+          "maximum_seconds": 144960.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 578,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2313.csv",
+      "participant": "UoM2313",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 266,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 266,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 266,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-10T01:31:00",
+        "maximum": "2024-02-02T12:36:00",
+        "delta_seconds": {
+          "count": 265,
+          "minimum_seconds": 60.0,
+          "median_seconds": 21240.0,
+          "mean_seconds": 27537.735849056604,
+          "maximum_seconds": 120060.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 532,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2314.csv",
+      "participant": "UoM2314",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 426,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 426,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 418,
+        "duplicate_timestamp_rows": 8,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-30T17:36:00",
+        "maximum": "2024-02-05T08:10:00",
+        "delta_seconds": {
+          "count": 417,
+          "minimum_seconds": 420.0,
+          "median_seconds": 18480.0,
+          "mean_seconds": 20223.59712230216,
+          "maximum_seconds": 52140.0
+        }
+      },
+      "missing_cells": 92,
+      "total_cells": 852,
+      "missingness_fraction": 0.107981220657277
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2401.csv",
+      "participant": "UoM2401",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 246,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 246,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 246,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-01-24T12:03:00",
+        "maximum": "2024-05-01T18:54:00",
+        "delta_seconds": {
+          "count": 245,
+          "minimum_seconds": 780.0,
+          "median_seconds": 17700.0,
+          "mean_seconds": 34660.65306122449,
+          "maximum_seconds": 602760.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 492,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2403.csv",
+      "participant": "UoM2403",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 322,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 322,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 322,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 1,
+        "minimum": "2023-03-13T19:15:00",
+        "maximum": "2024-06-23T22:30:00",
+        "delta_seconds": {
+          "count": 321,
+          "minimum_seconds": 1800.0,
+          "median_seconds": 25200.0,
+          "mean_seconds": 126002.80373831776,
+          "maximum_seconds": 30568500.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 644,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Insulin Data/Bolus Data/UoMBolus2405.csv",
+      "participant": "UoM2405",
+      "modality_family": "bolus_insulin",
+      "project_modality": "insulin",
+      "row_count": 289,
+      "column_count": 2,
+      "headers": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "timestamp_column": "bolus_ts",
+      "timestamp": {
+        "non_missing_count": 289,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 289,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-05-29T10:00:00",
+        "maximum": "2024-08-28T07:12:00",
+        "delta_seconds": {
+          "count": 288,
+          "minimum_seconds": 2280.0,
+          "median_seconds": 22320.0,
+          "mean_seconds": 27265.0,
+          "maximum_seconds": 115380.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 578,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2301.csv",
+      "participant": "UoM2301",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 302,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 302,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 296,
+        "duplicate_timestamp_rows": 6,
+        "out_of_order_transitions": 5,
+        "minimum": "2023-10-22T10:00:00",
+        "maximum": "2024-01-18T08:52:00",
+        "delta_seconds": {
+          "count": 295,
+          "minimum_seconds": 480.0,
+          "median_seconds": 17760.0,
+          "mean_seconds": 25759.728813559323,
+          "maximum_seconds": 227760.0
+        }
+      },
+      "missing_cells": 60,
+      "total_cells": 2114,
+      "missingness_fraction": 0.02838221381267739
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2302.csv",
+      "participant": "UoM2302",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 220,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 220,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 220,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 1,
+        "minimum": "2023-10-01T10:30:00",
+        "maximum": "2024-02-16T08:30:00",
+        "delta_seconds": {
+          "count": 219,
+          "minimum_seconds": 600.0,
+          "median_seconds": 25200.0,
+          "mean_seconds": 54410.95890410959,
+          "maximum_seconds": 2727000.0
+        }
+      },
+      "missing_cells": 20,
+      "total_cells": 1540,
+      "missingness_fraction": 0.012987012987012988
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2304.csv",
+      "participant": "UoM2304",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 203,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 203,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 202,
+        "duplicate_timestamp_rows": 1,
+        "out_of_order_transitions": 29,
+        "minimum": "2023-10-09T12:33:00",
+        "maximum": "2024-01-18T09:40:00",
+        "delta_seconds": {
+          "count": 201,
+          "minimum_seconds": 3000.0,
+          "median_seconds": 13800.0,
+          "mean_seconds": 43363.28358208955,
+          "maximum_seconds": 4281000.0
+        }
+      },
+      "missing_cells": 2,
+      "total_cells": 1421,
+      "missingness_fraction": 0.0014074595355383533
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2305.csv",
+      "participant": "UoM2305",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 127,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 127,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 127,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-17T13:00:00",
+        "maximum": "2024-01-18T18:30:00",
+        "delta_seconds": {
+          "count": 126,
+          "minimum_seconds": 1800.0,
+          "median_seconds": 23400.0,
+          "mean_seconds": 63928.57142857143,
+          "maximum_seconds": 1636320.0
+        }
+      },
+      "missing_cells": 24,
+      "total_cells": 889,
+      "missingness_fraction": 0.02699662542182227
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2306.csv",
+      "participant": "UoM2306",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 367,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 367,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 367,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-01T14:11:00",
+        "maximum": "2024-01-10T21:00:00",
+        "delta_seconds": {
+          "count": 366,
+          "minimum_seconds": 540.0,
+          "median_seconds": 19920.0,
+          "mean_seconds": 23909.67213114754,
+          "maximum_seconds": 107160.0
+        }
+      },
+      "missing_cells": 427,
+      "total_cells": 2569,
+      "missingness_fraction": 0.16621253405994552
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2307.csv",
+      "participant": "UoM2307",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 233,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 233,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 233,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-10T08:24:00",
+        "maximum": "2023-12-05T12:48:00",
+        "delta_seconds": {
+          "count": 232,
+          "minimum_seconds": 60.0,
+          "median_seconds": 13620.0,
+          "mean_seconds": 20923.44827586207,
+          "maximum_seconds": 80820.0
+        }
+      },
+      "missing_cells": 9,
+      "total_cells": 1631,
+      "missingness_fraction": 0.005518087063151441
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2308.csv",
+      "participant": "UoM2308",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 243,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 243,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 243,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-12-05T09:35:00",
+        "maximum": "2024-02-23T09:50:00",
+        "delta_seconds": {
+          "count": 242,
+          "minimum_seconds": 3480.0,
+          "median_seconds": 21990.0,
+          "mean_seconds": 28565.702479338845,
+          "maximum_seconds": 70080.0
+        }
+      },
+      "missing_cells": 37,
+      "total_cells": 1701,
+      "missingness_fraction": 0.02175191064079953
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2309.csv",
+      "participant": "UoM2309",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 213,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 213,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 213,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 6,
+        "minimum": "2024-02-05T13:10:00",
+        "maximum": "2024-05-05T14:35:00",
+        "delta_seconds": {
+          "count": 212,
+          "minimum_seconds": 600.0,
+          "median_seconds": 21600.0,
+          "mean_seconds": 36703.301886792455,
+          "maximum_seconds": 349500.0
+        }
+      },
+      "missing_cells": 12,
+      "total_cells": 1491,
+      "missingness_fraction": 0.008048289738430584
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2313.csv",
+      "participant": "UoM2313",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 184,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 184,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 184,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 1,
+        "minimum": "2023-11-07T15:00:00",
+        "maximum": "2024-01-31T20:00:00",
+        "delta_seconds": {
+          "count": 183,
+          "minimum_seconds": 1800.0,
+          "median_seconds": 28800.0,
+          "mean_seconds": 40229.50819672131,
+          "maximum_seconds": 156600.0
+        }
+      },
+      "missing_cells": 39,
+      "total_cells": 1288,
+      "missingness_fraction": 0.030279503105590064
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2314.csv",
+      "participant": "UoM2314",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 558,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 558,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 554,
+        "duplicate_timestamp_rows": 4,
+        "out_of_order_transitions": 4,
+        "minimum": "2023-10-31T08:00:00",
+        "maximum": "2024-12-15T12:30:00",
+        "delta_seconds": {
+          "count": 553,
+          "minimum_seconds": 120.0,
+          "median_seconds": 11580.0,
+          "mean_seconds": 64243.39963833635,
+          "maximum_seconds": 26575020.0
+        }
+      },
+      "missing_cells": 163,
+      "total_cells": 3906,
+      "missingness_fraction": 0.04173067076292883
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2401.csv",
+      "participant": "UoM2401",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 488,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 488,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 487,
+        "duplicate_timestamp_rows": 1,
+        "out_of_order_transitions": 1,
+        "minimum": "2024-02-01T07:02:00",
+        "maximum": "2024-04-30T22:10:00",
+        "delta_seconds": {
+          "count": 486,
+          "minimum_seconds": 60.0,
+          "median_seconds": 7920.0,
+          "mean_seconds": 15934.32098765432,
+          "maximum_seconds": 84600.0
+        }
+      },
+      "missing_cells": 199,
+      "total_cells": 3416,
+      "missingness_fraction": 0.058255269320843094
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2403.csv",
+      "participant": "UoM2403",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 181,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 181,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 181,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-03-01T15:28:00",
+        "maximum": "2024-06-21T20:04:00",
+        "delta_seconds": {
+          "count": 180,
+          "minimum_seconds": 4500.0,
+          "median_seconds": 51720.0,
+          "mean_seconds": 53852.0,
+          "maximum_seconds": 203160.0
+        }
+      },
+      "missing_cells": 198,
+      "total_cells": 1267,
+      "missingness_fraction": 0.15627466456195738
+    },
+    {
+      "file": "Nutrition Data/UoMNutrition2405.csv",
+      "participant": "UoM2405",
+      "modality_family": "nutrition",
+      "project_modality": "nutrition",
+      "row_count": 256,
+      "column_count": 7,
+      "headers": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "timestamp_column": "meal_ts",
+      "timestamp": {
+        "non_missing_count": 256,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 256,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 9,
+        "minimum": "2024-05-29T07:00:00",
+        "maximum": "2024-08-28T05:00:00",
+        "delta_seconds": {
+          "count": 255,
+          "minimum_seconds": 2700.0,
+          "median_seconds": 23400.0,
+          "mean_seconds": 30804.70588235294,
+          "maximum_seconds": 82800.0
+        }
+      },
+      "missing_cells": 7,
+      "total_cells": 1792,
+      "missingness_fraction": 0.00390625
+    },
+    {
+      "file": "Sleep Data/UoM2302sleeptime.csv",
+      "participant": "UoM2302",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 129,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 129,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 127,
+        "duplicate_timestamp_rows": 2,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-01T21:15:00",
+        "maximum": "2024-02-20T23:19:00",
+        "delta_seconds": {
+          "count": 126,
+          "minimum_seconds": 71460.0,
+          "median_seconds": 87360.0,
+          "mean_seconds": 97430.47619047618,
+          "maximum_seconds": 336240.0
+        }
+      },
+      "missing_cells": 119,
+      "total_cells": 1935,
+      "missingness_fraction": 0.06149870801033592
+    },
+    {
+      "file": "Sleep Data/UoM2304sleeptime.csv",
+      "participant": "UoM2304",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 116,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 116,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 116,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-08T22:47:00",
+        "maximum": "2024-02-05T01:42:00",
+        "delta_seconds": {
+          "count": 115,
+          "minimum_seconds": 51720.0,
+          "median_seconds": 86520.0,
+          "mean_seconds": 89496.52173913043,
+          "maximum_seconds": 180720.0
+        }
+      },
+      "missing_cells": 143,
+      "total_cells": 1740,
+      "missingness_fraction": 0.08218390804597701
+    },
+    {
+      "file": "Sleep Data/UoM2306sleeptime.csv",
+      "participant": "UoM2306",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 84,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 84,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 83,
+        "duplicate_timestamp_rows": 1,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-18T21:25:00",
+        "maximum": "2024-01-09T22:28:00",
+        "delta_seconds": {
+          "count": 82,
+          "minimum_seconds": 72900.0,
+          "median_seconds": 86580.0,
+          "mean_seconds": 87499.75609756098,
+          "maximum_seconds": 176760.0
+        }
+      },
+      "missing_cells": 110,
+      "total_cells": 1260,
+      "missingness_fraction": 0.0873015873015873
+    },
+    {
+      "file": "Sleep Data/UoM2307sleeptime.csv",
+      "participant": "UoM2307",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 90,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 90,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 89,
+        "duplicate_timestamp_rows": 1,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-13T21:48:00",
+        "maximum": "2024-01-10T23:55:00",
+        "delta_seconds": {
+          "count": 88,
+          "minimum_seconds": 70740.0,
+          "median_seconds": 86610.0,
+          "mean_seconds": 87468.40909090909,
+          "maximum_seconds": 172500.0
+        }
+      },
+      "missing_cells": 92,
+      "total_cells": 1350,
+      "missingness_fraction": 0.06814814814814815
+    },
+    {
+      "file": "Sleep Data/UoM2308sleeptime.csv",
+      "participant": "UoM2308",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 71,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 71,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 71,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-12-05T01:25:00",
+        "maximum": "2024-03-13T01:22:00",
+        "delta_seconds": {
+          "count": 70,
+          "minimum_seconds": 76500.0,
+          "median_seconds": 87000.0,
+          "mean_seconds": 122191.71428571429,
+          "maximum_seconds": 1119240.0
+        }
+      },
+      "missing_cells": 75,
+      "total_cells": 1065,
+      "missingness_fraction": 0.07042253521126761
+    },
+    {
+      "file": "Sleep Data/UoM2309sleeptime.csv",
+      "participant": "UoM2309",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 83,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 83,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 82,
+        "duplicate_timestamp_rows": 1,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-06T22:19:00",
+        "maximum": "2024-04-28T21:00:00",
+        "delta_seconds": {
+          "count": 81,
+          "minimum_seconds": 69300.0,
+          "median_seconds": 85800.0,
+          "mean_seconds": 87408.14814814815,
+          "maximum_seconds": 158580.0
+        }
+      },
+      "missing_cells": 79,
+      "total_cells": 1245,
+      "missingness_fraction": 0.06345381526104418
+    },
+    {
+      "file": "Sleep Data/UoM2313sleeptime.csv",
+      "participant": "UoM2313",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 94,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 94,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 94,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-08T02:46:00",
+        "maximum": "2024-02-27T03:42:00",
+        "delta_seconds": {
+          "count": 93,
+          "minimum_seconds": 59040.0,
+          "median_seconds": 88380.0,
+          "mean_seconds": 103158.70967741935,
+          "maximum_seconds": 1107780.0
+        }
+      },
+      "missing_cells": 114,
+      "total_cells": 1410,
+      "missingness_fraction": 0.08085106382978724
+    },
+    {
+      "file": "Sleep Data/UoM2314sleeptime.csv",
+      "participant": "UoM2314",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 88,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 88,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 88,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-11-06T01:15:00",
+        "maximum": "2024-01-31T23:37:00",
+        "delta_seconds": {
+          "count": 87,
+          "minimum_seconds": 75960.0,
+          "median_seconds": 86460.0,
+          "mean_seconds": 86332.41379310345,
+          "maximum_seconds": 94860.0
+        }
+      },
+      "missing_cells": 115,
+      "total_cells": 1320,
+      "missingness_fraction": 0.08712121212121213
+    },
+    {
+      "file": "Sleep Data/UoM2401sleeptime.csv",
+      "participant": "UoM2401",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 69,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 69,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 69,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-19T01:20:00",
+        "maximum": "2024-04-29T21:50:00",
+        "delta_seconds": {
+          "count": 68,
+          "minimum_seconds": 65160.0,
+          "median_seconds": 87060.0,
+          "mean_seconds": 90026.4705882353,
+          "maximum_seconds": 174060.0
+        }
+      },
+      "missing_cells": 71,
+      "total_cells": 1035,
+      "missingness_fraction": 0.06859903381642513
+    },
+    {
+      "file": "Sleep Data/UoM2403sleeptime.csv",
+      "participant": "UoM2403",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 86,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 86,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 86,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-04-01T02:46:00",
+        "maximum": "2024-06-29T02:27:00",
+        "delta_seconds": {
+          "count": 85,
+          "minimum_seconds": 62220.0,
+          "median_seconds": 86340.0,
+          "mean_seconds": 90452.4705882353,
+          "maximum_seconds": 272460.0
+        }
+      },
+      "missing_cells": 118,
+      "total_cells": 1290,
+      "missingness_fraction": 0.09147286821705426
+    },
+    {
+      "file": "Sleep Data/UoM2405sleeptime.csv",
+      "participant": "UoM2405",
+      "modality_family": "sleep_summary",
+      "project_modality": "sleep",
+      "row_count": 78,
+      "column_count": 15,
+      "headers": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "timestamp_column": "start_date_ts",
+      "timestamp": {
+        "non_missing_count": 78,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 78,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-06-10T22:49:00",
+        "maximum": "2024-08-27T23:27:00",
+        "delta_seconds": {
+          "count": 77,
+          "minimum_seconds": 75840.0,
+          "median_seconds": 86460.0,
+          "mean_seconds": 87551.68831168831,
+          "maximum_seconds": 173940.0
+        }
+      },
+      "missing_cells": 122,
+      "total_cells": 1170,
+      "missingness_fraction": 0.10427350427350428
+    },
+    {
+      "file": "Sleep Data/UoMsleep2301.csv",
+      "participant": "UoM2301",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 24193,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 24193,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 24193,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-06T00:00:00",
+        "maximum": "2023-12-29T00:00:00",
+        "delta_seconds": {
+          "count": 24192,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 169351,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2302.csv",
+      "participant": "UoM2302",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 21889,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 21889,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 21889,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-09T00:00:00",
+        "maximum": "2023-12-24T00:00:00",
+        "delta_seconds": {
+          "count": 21888,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 153223,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2304.csv",
+      "participant": "UoM2304",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 31969,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 31969,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 31969,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-17T00:00:00",
+        "maximum": "2024-02-05T00:00:00",
+        "delta_seconds": {
+          "count": 31968,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 223783,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2305.csv",
+      "participant": "UoM2305",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 24193,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 24193,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 24193,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-17T00:00:00",
+        "maximum": "2024-01-09T00:00:00",
+        "delta_seconds": {
+          "count": 24192,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 169351,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2306.csv",
+      "participant": "UoM2306",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 24193,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 24193,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 24193,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-18T00:00:00",
+        "maximum": "2024-01-10T00:00:00",
+        "delta_seconds": {
+          "count": 24192,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 169351,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2307.csv",
+      "participant": "UoM2307",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 24193,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 24193,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 24193,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-10-13T00:00:00",
+        "maximum": "2024-01-05T00:00:00",
+        "delta_seconds": {
+          "count": 24192,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 169351,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2308.csv",
+      "participant": "UoM2308",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 24192,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 24192,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 24192,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-12-04T00:05:00",
+        "maximum": "2024-02-26T00:00:00",
+        "delta_seconds": {
+          "count": 24191,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 169344,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2309.csv",
+      "participant": "UoM2309",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 24769,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 24769,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 24769,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-02-05T00:00:00",
+        "maximum": "2024-05-01T00:00:00",
+        "delta_seconds": {
+          "count": 24768,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 173383,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2313.csv",
+      "participant": "UoM2313",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 9260,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 9260,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 9260,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2023-12-31T20:25:00",
+        "maximum": "2024-02-02T00:00:00",
+        "delta_seconds": {
+          "count": 9259,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 64820,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2401.csv",
+      "participant": "UoM2401",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 29665,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 29665,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 29665,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-01-19T00:00:00",
+        "maximum": "2024-05-01T00:00:00",
+        "delta_seconds": {
+          "count": 29664,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 207655,
+      "missingness_fraction": 0.0
+    },
+    {
+      "file": "Sleep Data/UoMsleep2405.csv",
+      "participant": "UoM2405",
+      "modality_family": "sleep_timeseries",
+      "project_modality": "sleep",
+      "row_count": 2360,
+      "column_count": 7,
+      "headers": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "timestamp_column": "sleep_ts",
+      "timestamp": {
+        "non_missing_count": 2360,
+        "missing_count": 0,
+        "parse_failure_count": 0,
+        "unique_count": 2360,
+        "duplicate_timestamp_rows": 0,
+        "out_of_order_transitions": 0,
+        "minimum": "2024-06-03T00:00:00",
+        "maximum": "2024-06-11T04:35:00",
+        "delta_seconds": {
+          "count": 2359,
+          "minimum_seconds": 300.0,
+          "median_seconds": 300.0,
+          "mean_seconds": 300.0,
+          "maximum_seconds": 300.0
+        }
+      },
+      "missing_cells": 0,
+      "total_cells": 16520,
+      "missingness_fraction": 0.0
+    }
+  ],
+  "status": "PASS",
+  "next_stage": "Proceed to sequence-preparation design. The sequence builder must explicitly define chronological ordering and duplicate-timestamp tie handling."
+}

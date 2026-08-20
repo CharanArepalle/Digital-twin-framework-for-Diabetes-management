@@ -1,0 +1,29 @@
+{
+  "project": "T1D-UOM",
+  "stage": "modeling_dataset_exclusion",
+  "created_utc": "2026-08-15T22:40:58.087178+00:00",
+  "source_dataset": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_timestamp_corrected",
+  "modeling_dataset": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_modeling",
+  "raw_dataset_modified": false,
+  "source_dataset_modified": false,
+  "approved_exclusion_count": 2,
+  "approved_exclusions": [
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2301.csv",
+      "participant": "UoM2301",
+      "modality": "basal_insulin",
+      "reason": "Excluded from the modeling dataset because this file has a distinct basal-insulin schema from the established basal-insulin modality-family schema. The participant remains eligible because bolus-insulin data are available.",
+      "source_sha256": "af7f6b94adebe35b122f4dcee6ec4e0951549db9405df30b7392cd2ce9dd708e",
+      "source_file_size_bytes": 302480
+    },
+    {
+      "relative_path": "Sleep Data/UoM2301sleeptime.csv",
+      "participant": "UoM2301",
+      "modality": "sleep_summary",
+      "reason": "Excluded from the modeling dataset because this file has a distinct sleep-summary schema from the established sleep-summary modality-family schema. The participant remains eligible because sleep time-series data are available.",
+      "source_sha256": "d1d935cb15b14b512bfbd9ce72e0a52db145f44786bf7e70d73e66f25710d0a8",
+      "source_file_size_bytes": 171316
+    }
+  ],
+  "decision": "Exactly two explicitly approved schema-outlier files are excluded from the modeling dataset. No other files are excluded."
+}

@@ -1,0 +1,67 @@
+{
+  "manifest_version": "2.0",
+  "created_at_utc": "2026-08-15T21:18:30.186024+00:00",
+  "project_root": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project",
+  "raw_dataset": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\raw\\t1d_uom_v1.0.3",
+  "derived_dataset": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_timestamp_corrected",
+  "raw_dataset_modified": false,
+  "correction_method": "Exact file + exact column + exact original-value matching. No row-number-based targeting.",
+  "approved_corrections": [
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2320.csv",
+      "participant": "UoM2320",
+      "column": "meal_ts",
+      "original_value": "02/12/2033 20:00",
+      "corrected_value": "02/12/2023 20:00",
+      "reason": "Approved evidence-based correction of an anomalous four-digit year in the meal timestamp."
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2404.csv",
+      "participant": "UoM2404",
+      "column": "meal_ts",
+      "original_value": "22/04/2204 11:45",
+      "corrected_value": "22/04/2024 11:45",
+      "reason": "Approved evidence-based correction of an anomalous four-digit year in the meal timestamp."
+    }
+  ],
+  "correction_results": [
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2320.csv",
+      "participant": "UoM2320",
+      "column": "meal_ts",
+      "original_value": "02/12/2033 20:00",
+      "corrected_value": "02/12/2023 20:00",
+      "raw_sha256": "e409207388cfe2e12e0cb5089da155103d8e588456e8e18730195a5ba2d000f6",
+      "derived_sha256": "91f93b4c5076658f893055643352221fd562091345d909de477f7bd7e710a5a0",
+      "raw_data_row_index_zero_based": 19,
+      "derived_data_row_index_zero_based": 19,
+      "status": "APPLIED_AND_VERIFIED"
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2404.csv",
+      "participant": "UoM2404",
+      "column": "meal_ts",
+      "original_value": "22/04/2204 11:45",
+      "corrected_value": "22/04/2024 11:45",
+      "raw_sha256": "e75d56905d25d8e654226e25ef43bf750a6e90a976d1a64f6b59278b78723152",
+      "derived_sha256": "7785efbbdc888505e49565ee4f1db64a7a3d4b03fe6b2d3e621cc0afbfe3e5ae",
+      "raw_data_row_index_zero_based": 166,
+      "derived_data_row_index_zero_based": 166,
+      "status": "APPLIED_AND_VERIFIED"
+    }
+  ],
+  "raw_sha256_file_count": 112,
+  "final_verification": {
+    "raw_csv_files": 112,
+    "derived_csv_files": 112,
+    "byte_identical_csv_files": 110,
+    "changed_csv_files": 2,
+    "changed_files": [
+      "Nutrition Data/UoMNutrition2320.csv",
+      "Nutrition Data/UoMNutrition2404.csv"
+    ],
+    "raw_dataset_preserved": true,
+    "approved_change_set_verified": true
+  },
+  "status": "SUCCESS"
+}

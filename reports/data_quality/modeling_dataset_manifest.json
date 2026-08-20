@@ -1,0 +1,1062 @@
+{
+  "project": "T1D-UOM",
+  "stage": "modeling_dataset_freeze",
+  "created_utc": "2026-08-15T22:40:58.277217+00:00",
+  "source_dataset": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_timestamp_corrected",
+  "modeling_dataset": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_modeling",
+  "raw_dataset_modified": false,
+  "source_dataset_modified": false,
+  "source_csv_count": 112,
+  "excluded_csv_count": 2,
+  "modeling_csv_count": 110,
+  "excluded_files": [
+    "Insulin Data/Basal Data/UoMBasal2301.csv",
+    "Sleep Data/UoM2301sleeptime.csv"
+  ],
+  "frozen_five_modality_cohort": [
+    "UoM2301",
+    "UoM2302",
+    "UoM2304",
+    "UoM2305",
+    "UoM2306",
+    "UoM2307",
+    "UoM2308",
+    "UoM2309",
+    "UoM2313",
+    "UoM2314",
+    "UoM2401",
+    "UoM2403",
+    "UoM2405"
+  ],
+  "additional_eligible_participants": [
+    "UoM2320",
+    "UoM2404"
+  ],
+  "eligible_five_modality_participants": [
+    "UoM2301",
+    "UoM2302",
+    "UoM2304",
+    "UoM2305",
+    "UoM2306",
+    "UoM2307",
+    "UoM2308",
+    "UoM2309",
+    "UoM2313",
+    "UoM2314",
+    "UoM2320",
+    "UoM2401",
+    "UoM2403",
+    "UoM2404",
+    "UoM2405"
+  ],
+  "retained_files": [
+    {
+      "relative_path": "Activity Data/UoMActivity2301.csv",
+      "participant": "UoM2301",
+      "modality": "activity",
+      "source_sha256": "39a68d4baa43eeb4ff721fec9467a1ec548f7444f944a25056b54b3d3408da24",
+      "modeling_sha256": "39a68d4baa43eeb4ff721fec9467a1ec548f7444f944a25056b54b3d3408da24",
+      "byte_identical": true,
+      "size_bytes": 744874
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2302.csv",
+      "participant": "UoM2302",
+      "modality": "activity",
+      "source_sha256": "2d5f8d67bd7ad4c9bb4b6994d990874d64c681abfa0246d9958ade07e7ff1a6e",
+      "modeling_sha256": "2d5f8d67bd7ad4c9bb4b6994d990874d64c681abfa0246d9958ade07e7ff1a6e",
+      "byte_identical": true,
+      "size_bytes": 1477596
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2303.csv",
+      "participant": "UoM2303",
+      "modality": "activity",
+      "source_sha256": "3170d3beb4e49fe93089f401e01bb8564f4e1c216151f819debc70eb13845a32",
+      "modeling_sha256": "3170d3beb4e49fe93089f401e01bb8564f4e1c216151f819debc70eb13845a32",
+      "byte_identical": true,
+      "size_bytes": 578082
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2304.csv",
+      "participant": "UoM2304",
+      "modality": "activity",
+      "source_sha256": "70caea2ba93de31c5cbf6a4b992edbf6608570307fd5c9b0fa19b03d6a61f6b7",
+      "modeling_sha256": "70caea2ba93de31c5cbf6a4b992edbf6608570307fd5c9b0fa19b03d6a61f6b7",
+      "byte_identical": true,
+      "size_bytes": 1419177
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2305.csv",
+      "participant": "UoM2305",
+      "modality": "activity",
+      "source_sha256": "565f96f03ac84f20a1192483b930408efb18a05d12fcd053a4b9cecd43a60337",
+      "modeling_sha256": "565f96f03ac84f20a1192483b930408efb18a05d12fcd053a4b9cecd43a60337",
+      "byte_identical": true,
+      "size_bytes": 2210181
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2306.csv",
+      "participant": "UoM2306",
+      "modality": "activity",
+      "source_sha256": "4e1435a7797aa54f0f8c4e4f702152c508760016653edd7539f9cd1a81d443f0",
+      "modeling_sha256": "4e1435a7797aa54f0f8c4e4f702152c508760016653edd7539f9cd1a81d443f0",
+      "byte_identical": true,
+      "size_bytes": 927220
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2307.csv",
+      "participant": "UoM2307",
+      "modality": "activity",
+      "source_sha256": "1fbfdfdc522476c42e19e0832722c8e5601b7eb776da7ae5ab3db671a78e3f8e",
+      "modeling_sha256": "1fbfdfdc522476c42e19e0832722c8e5601b7eb776da7ae5ab3db671a78e3f8e",
+      "byte_identical": true,
+      "size_bytes": 998412
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2308.csv",
+      "participant": "UoM2308",
+      "modality": "activity",
+      "source_sha256": "80cdd261e4b6dfea0c0bc7eee6ce231028152338e33b32d66d038d08aa16e356",
+      "modeling_sha256": "80cdd261e4b6dfea0c0bc7eee6ce231028152338e33b32d66d038d08aa16e356",
+      "byte_identical": true,
+      "size_bytes": 801548
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2309.csv",
+      "participant": "UoM2309",
+      "modality": "activity",
+      "source_sha256": "aba13b28fc5c1930740074469c650e8d49bf1dd82b8c6ba10e3f4a55c6169ef5",
+      "modeling_sha256": "aba13b28fc5c1930740074469c650e8d49bf1dd82b8c6ba10e3f4a55c6169ef5",
+      "byte_identical": true,
+      "size_bytes": 878060
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2310.csv",
+      "participant": "UoM2310",
+      "modality": "activity",
+      "source_sha256": "78e4d711a9ec9cb781207ac3605eb0a37fc5e5323ec6c27cca6e93c734321efd",
+      "modeling_sha256": "78e4d711a9ec9cb781207ac3605eb0a37fc5e5323ec6c27cca6e93c734321efd",
+      "byte_identical": true,
+      "size_bytes": 934194
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2313.csv",
+      "participant": "UoM2313",
+      "modality": "activity",
+      "source_sha256": "016eeacf48c82d853667ff97e942318dc55bd76faf3b8a4e8a8adf1f3af6df9b",
+      "modeling_sha256": "016eeacf48c82d853667ff97e942318dc55bd76faf3b8a4e8a8adf1f3af6df9b",
+      "byte_identical": true,
+      "size_bytes": 1198235
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2314.csv",
+      "participant": "UoM2314",
+      "modality": "activity",
+      "source_sha256": "cbc635e824975d9f1a950f4fd15ba17de5263bb313f0a8e660ac695d5cd90edb",
+      "modeling_sha256": "cbc635e824975d9f1a950f4fd15ba17de5263bb313f0a8e660ac695d5cd90edb",
+      "byte_identical": true,
+      "size_bytes": 960945
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2320.csv",
+      "participant": "UoM2320",
+      "modality": "activity",
+      "source_sha256": "7f60a835c51f4d2d0102b7279631f7b753d4b168f387851859f16c39e71e1ca7",
+      "modeling_sha256": "7f60a835c51f4d2d0102b7279631f7b753d4b168f387851859f16c39e71e1ca7",
+      "byte_identical": true,
+      "size_bytes": 925990
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2401.csv",
+      "participant": "UoM2401",
+      "modality": "activity",
+      "source_sha256": "6e1618040c681985290d52c6d4f23af20319054c6aecffa2e284881c1090a437",
+      "modeling_sha256": "6e1618040c681985290d52c6d4f23af20319054c6aecffa2e284881c1090a437",
+      "byte_identical": true,
+      "size_bytes": 792815
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2403.csv",
+      "participant": "UoM2403",
+      "modality": "activity",
+      "source_sha256": "eda36cf7423f2428d591bd0fd921944006d6e09f961df5f734e056eef21c590b",
+      "modeling_sha256": "eda36cf7423f2428d591bd0fd921944006d6e09f961df5f734e056eef21c590b",
+      "byte_identical": true,
+      "size_bytes": 900089
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2404.csv",
+      "participant": "UoM2404",
+      "modality": "activity",
+      "source_sha256": "5cc5d90e7729c8b12f95fe55e9765d58de209ab99d4f7388bf9cd080fbca3ab3",
+      "modeling_sha256": "5cc5d90e7729c8b12f95fe55e9765d58de209ab99d4f7388bf9cd080fbca3ab3",
+      "byte_identical": true,
+      "size_bytes": 933582
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2405.csv",
+      "participant": "UoM2405",
+      "modality": "activity",
+      "source_sha256": "77c3ec60e6cc39621757a30042c87fbc2dffc354808acf7a15ba48355bfb1b26",
+      "modeling_sha256": "77c3ec60e6cc39621757a30042c87fbc2dffc354808acf7a15ba48355bfb1b26",
+      "byte_identical": true,
+      "size_bytes": 939986
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2301.csv",
+      "participant": "UoM2301",
+      "modality": "glucose",
+      "source_sha256": "d0dd58aff8fc83ca58287721eba62a18b75b7658cf7659fa35369a9b759541fa",
+      "modeling_sha256": "d0dd58aff8fc83ca58287721eba62a18b75b7658cf7659fa35369a9b759541fa",
+      "byte_identical": true,
+      "size_bytes": 1006858
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2302.csv",
+      "participant": "UoM2302",
+      "modality": "glucose",
+      "source_sha256": "4e69a51cabd7cddf2134daeec0f394d5c981f5fc084f8ea95e1c746ab3c2d6a4",
+      "modeling_sha256": "4e69a51cabd7cddf2134daeec0f394d5c981f5fc084f8ea95e1c746ab3c2d6a4",
+      "byte_identical": true,
+      "size_bytes": 300503
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2303.csv",
+      "participant": "UoM2303",
+      "modality": "glucose",
+      "source_sha256": "0f62f37a6e4a8a4d23063b64f86f1f7ae313ebab84a3013e49c284f503eb3f01",
+      "modeling_sha256": "0f62f37a6e4a8a4d23063b64f86f1f7ae313ebab84a3013e49c284f503eb3f01",
+      "byte_identical": true,
+      "size_bytes": 310036
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2304.csv",
+      "participant": "UoM2304",
+      "modality": "glucose",
+      "source_sha256": "8e317f78e7bd9010ca00de19f60e8e8492575dd511e5362a043a9db272f6753b",
+      "modeling_sha256": "8e317f78e7bd9010ca00de19f60e8e8492575dd511e5362a043a9db272f6753b",
+      "byte_identical": true,
+      "size_bytes": 872095
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2305.csv",
+      "participant": "UoM2305",
+      "modality": "glucose",
+      "source_sha256": "7c30ef9e1ed0693f6dedae536b440dddcf8b7dda377c13c6011897ebf6dc1580",
+      "modeling_sha256": "7c30ef9e1ed0693f6dedae536b440dddcf8b7dda377c13c6011897ebf6dc1580",
+      "byte_identical": true,
+      "size_bytes": 160949
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2306.csv",
+      "participant": "UoM2306",
+      "modality": "glucose",
+      "source_sha256": "e00ffa47b449125969a13b72aaa7fa381c474768a00bd6545dd20ebd3230cddd",
+      "modeling_sha256": "e00ffa47b449125969a13b72aaa7fa381c474768a00bd6545dd20ebd3230cddd",
+      "byte_identical": true,
+      "size_bytes": 256768
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2307.csv",
+      "participant": "UoM2307",
+      "modality": "glucose",
+      "source_sha256": "a362376f2939caa0929ed42789cd45f30eb4b0dd8e8a7ae7d1c58f46b3e0aa40",
+      "modeling_sha256": "a362376f2939caa0929ed42789cd45f30eb4b0dd8e8a7ae7d1c58f46b3e0aa40",
+      "byte_identical": true,
+      "size_bytes": 185331
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2308.csv",
+      "participant": "UoM2308",
+      "modality": "glucose",
+      "source_sha256": "ab4efa1ce7483255c7f1189d8c06569b3e134d4ecf5926859c0cadfeeea72526",
+      "modeling_sha256": "ab4efa1ce7483255c7f1189d8c06569b3e134d4ecf5926859c0cadfeeea72526",
+      "byte_identical": true,
+      "size_bytes": 629002
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2309.csv",
+      "participant": "UoM2309",
+      "modality": "glucose",
+      "source_sha256": "05d41672d5cbf6d36098c7e152585f26c1ba28ecf3f3b4501d43f7f44dfda354",
+      "modeling_sha256": "05d41672d5cbf6d36098c7e152585f26c1ba28ecf3f3b4501d43f7f44dfda354",
+      "byte_identical": true,
+      "size_bytes": 459425
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2310.csv",
+      "participant": "UoM2310",
+      "modality": "glucose",
+      "source_sha256": "c47f3ef24106361d125bfcb140d502d3cb3124072e42438c8e4b1660286e8691",
+      "modeling_sha256": "c47f3ef24106361d125bfcb140d502d3cb3124072e42438c8e4b1660286e8691",
+      "byte_identical": true,
+      "size_bytes": 1096490
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2313.csv",
+      "participant": "UoM2313",
+      "modality": "glucose",
+      "source_sha256": "7e26d3e0ff790e0799980d9c2bc03e0165d41ae3289d78bd2c86d9a88abd2ce2",
+      "modeling_sha256": "7e26d3e0ff790e0799980d9c2bc03e0165d41ae3289d78bd2c86d9a88abd2ce2",
+      "byte_identical": true,
+      "size_bytes": 687945
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2314.csv",
+      "participant": "UoM2314",
+      "modality": "glucose",
+      "source_sha256": "51bb8e52b6d8e70caf71625ae5eeed75849be2bd34f8ed580ca8da94b98fe047",
+      "modeling_sha256": "51bb8e52b6d8e70caf71625ae5eeed75849be2bd34f8ed580ca8da94b98fe047",
+      "byte_identical": true,
+      "size_bytes": 284520
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2320.csv",
+      "participant": "UoM2320",
+      "modality": "glucose",
+      "source_sha256": "c3051f264eef8803372fa81dfe3fd9d39d895bdb8b8cee5ed65a2fadf1b20eea",
+      "modeling_sha256": "c3051f264eef8803372fa81dfe3fd9d39d895bdb8b8cee5ed65a2fadf1b20eea",
+      "byte_identical": true,
+      "size_bytes": 523188
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2401.csv",
+      "participant": "UoM2401",
+      "modality": "glucose",
+      "source_sha256": "16afb74d6294e7996189e38f64b4635d258a3ed9ebd0561907d5622562a2e0b1",
+      "modeling_sha256": "16afb74d6294e7996189e38f64b4635d258a3ed9ebd0561907d5622562a2e0b1",
+      "byte_identical": true,
+      "size_bytes": 332885
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2403.csv",
+      "participant": "UoM2403",
+      "modality": "glucose",
+      "source_sha256": "ee8016eb8598317d29458e053f92496631e1ba3aa6efaf44c0b400b0b8e79470",
+      "modeling_sha256": "ee8016eb8598317d29458e053f92496631e1ba3aa6efaf44c0b400b0b8e79470",
+      "byte_identical": true,
+      "size_bytes": 285994
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2404.csv",
+      "participant": "UoM2404",
+      "modality": "glucose",
+      "source_sha256": "e5e46a787a44cc4f2a932d599bdfb6995846636d63c30c17cc1c670383f70156",
+      "modeling_sha256": "e5e46a787a44cc4f2a932d599bdfb6995846636d63c30c17cc1c670383f70156",
+      "byte_identical": true,
+      "size_bytes": 182570
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2405.csv",
+      "participant": "UoM2405",
+      "modality": "glucose",
+      "source_sha256": "16dc1fa08b9ecab6429ff6b79ad4fc83821e85f5f0641532011a598ef54532e7",
+      "modeling_sha256": "16dc1fa08b9ecab6429ff6b79ad4fc83821e85f5f0641532011a598ef54532e7",
+      "byte_identical": true,
+      "size_bytes": 278837
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2302.csv",
+      "participant": "UoM2302",
+      "modality": "basal_insulin",
+      "source_sha256": "c384b76b40e0ee3560fc402907becdf401a4a422f6da6364909ac5f9a58b3493",
+      "modeling_sha256": "c384b76b40e0ee3560fc402907becdf401a4a422f6da6364909ac5f9a58b3493",
+      "byte_identical": true,
+      "size_bytes": 788
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2304.csv",
+      "participant": "UoM2304",
+      "modality": "basal_insulin",
+      "source_sha256": "21bc64fd4cd173376e658cec133bb5fa8d1f336e40f2b023bbb658c7d512d5e4",
+      "modeling_sha256": "21bc64fd4cd173376e658cec133bb5fa8d1f336e40f2b023bbb658c7d512d5e4",
+      "byte_identical": true,
+      "size_bytes": 5513
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2305.csv",
+      "participant": "UoM2305",
+      "modality": "basal_insulin",
+      "source_sha256": "4f4615c70102229446162e040ef4ea42c6010c0d81aa694495f7bf58a54f7e89",
+      "modeling_sha256": "4f4615c70102229446162e040ef4ea42c6010c0d81aa694495f7bf58a54f7e89",
+      "byte_identical": true,
+      "size_bytes": 750
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2306.csv",
+      "participant": "UoM2306",
+      "modality": "basal_insulin",
+      "source_sha256": "95e41ea347f4ebe6bcf08393dc1e5161783ed64a7ba8611e1f596539c6462682",
+      "modeling_sha256": "95e41ea347f4ebe6bcf08393dc1e5161783ed64a7ba8611e1f596539c6462682",
+      "byte_identical": true,
+      "size_bytes": 1841
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2307.csv",
+      "participant": "UoM2307",
+      "modality": "basal_insulin",
+      "source_sha256": "4417b7dca60faf1c187a621f7e440bb17269a61e6d0190a64b8bb5830a73d81e",
+      "modeling_sha256": "4417b7dca60faf1c187a621f7e440bb17269a61e6d0190a64b8bb5830a73d81e",
+      "byte_identical": true,
+      "size_bytes": 175266
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2308.csv",
+      "participant": "UoM2308",
+      "modality": "basal_insulin",
+      "source_sha256": "dca82dfee29e11e5e39ceebebd0b13efe7db309476b8c614dd144831e08a40fe",
+      "modeling_sha256": "dca82dfee29e11e5e39ceebebd0b13efe7db309476b8c614dd144831e08a40fe",
+      "byte_identical": true,
+      "size_bytes": 20236
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2309.csv",
+      "participant": "UoM2309",
+      "modality": "basal_insulin",
+      "source_sha256": "c6cfa038eaca8f770a6057094d1ea2f1752d82d9f630d3e419e0a86d0b76cc07",
+      "modeling_sha256": "c6cfa038eaca8f770a6057094d1ea2f1752d82d9f630d3e419e0a86d0b76cc07",
+      "byte_identical": true,
+      "size_bytes": 15505
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2310.csv",
+      "participant": "UoM2310",
+      "modality": "basal_insulin",
+      "source_sha256": "c083ecc5cab1f87a6d85531f4bbef03ab4dbddacca1f5aa39faa1b78d13254ec",
+      "modeling_sha256": "c083ecc5cab1f87a6d85531f4bbef03ab4dbddacca1f5aa39faa1b78d13254ec",
+      "byte_identical": true,
+      "size_bytes": 6199
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2313.csv",
+      "participant": "UoM2313",
+      "modality": "basal_insulin",
+      "source_sha256": "8f8bbbcdaca4c7c377fab078d8c82a805c3556747b064f1a8db64a48f4ca156b",
+      "modeling_sha256": "8f8bbbcdaca4c7c377fab078d8c82a805c3556747b064f1a8db64a48f4ca156b",
+      "byte_identical": true,
+      "size_bytes": 2360
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2314.csv",
+      "participant": "UoM2314",
+      "modality": "basal_insulin",
+      "source_sha256": "da7a89b4187979578cee24974b9219e621c8cbe5fe617835c2c1a35d7f201f26",
+      "modeling_sha256": "da7a89b4187979578cee24974b9219e621c8cbe5fe617835c2c1a35d7f201f26",
+      "byte_identical": true,
+      "size_bytes": 2122
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2401.csv",
+      "participant": "UoM2401",
+      "modality": "basal_insulin",
+      "source_sha256": "687b717e1057e96e18e2f17ab2becb734a4ab8141eae78b918e36a104a9d4b42",
+      "modeling_sha256": "687b717e1057e96e18e2f17ab2becb734a4ab8141eae78b918e36a104a9d4b42",
+      "byte_identical": true,
+      "size_bytes": 2222
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2403.csv",
+      "participant": "UoM2403",
+      "modality": "basal_insulin",
+      "source_sha256": "9313769feb2826a9ba3ea8a199551741a2e1a74864fbe02be14c92be6745fe65",
+      "modeling_sha256": "9313769feb2826a9ba3ea8a199551741a2e1a74864fbe02be14c92be6745fe65",
+      "byte_identical": true,
+      "size_bytes": 310
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2405.csv",
+      "participant": "UoM2405",
+      "modality": "basal_insulin",
+      "source_sha256": "155177b01383ea7c5117cbc90dd4857aba8af1ce0b02aa5bd1c773ef0e9fa8af",
+      "modeling_sha256": "155177b01383ea7c5117cbc90dd4857aba8af1ce0b02aa5bd1c773ef0e9fa8af",
+      "byte_identical": true,
+      "size_bytes": 3694
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2301.csv",
+      "participant": "UoM2301",
+      "modality": "bolus_insulin",
+      "source_sha256": "501eb20af711ebce6e830ffb20f7b10bcae8cb037b6a3fd6df99c28f8fd318d3",
+      "modeling_sha256": "501eb20af711ebce6e830ffb20f7b10bcae8cb037b6a3fd6df99c28f8fd318d3",
+      "byte_identical": true,
+      "size_bytes": 15382
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2302.csv",
+      "participant": "UoM2302",
+      "modality": "bolus_insulin",
+      "source_sha256": "1dbba995c0d8d3d9b4c19681adae398e27f07cc8a4a828786d555544983224d1",
+      "modeling_sha256": "1dbba995c0d8d3d9b4c19681adae398e27f07cc8a4a828786d555544983224d1",
+      "byte_identical": true,
+      "size_bytes": 3580
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2304.csv",
+      "participant": "UoM2304",
+      "modality": "bolus_insulin",
+      "source_sha256": "13372ab0dcf203cd51180b31b1083daf4cd42492ee23669cee5bf658e4a24f82",
+      "modeling_sha256": "13372ab0dcf203cd51180b31b1083daf4cd42492ee23669cee5bf658e4a24f82",
+      "byte_identical": true,
+      "size_bytes": 4567
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2305.csv",
+      "participant": "UoM2305",
+      "modality": "bolus_insulin",
+      "source_sha256": "ec0131a2db251ce5feec5f6ee3965df3675ed3daf693d17b5499f62b73797eea",
+      "modeling_sha256": "ec0131a2db251ce5feec5f6ee3965df3675ed3daf693d17b5499f62b73797eea",
+      "byte_identical": true,
+      "size_bytes": 3349
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2306.csv",
+      "participant": "UoM2306",
+      "modality": "bolus_insulin",
+      "source_sha256": "14fdd3b0c3c95e21171e58828f8431db30011db076fcc5dd0277048fd241fd9e",
+      "modeling_sha256": "14fdd3b0c3c95e21171e58828f8431db30011db076fcc5dd0277048fd241fd9e",
+      "byte_identical": true,
+      "size_bytes": 10313
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2307.csv",
+      "participant": "UoM2307",
+      "modality": "bolus_insulin",
+      "source_sha256": "ffecc4bc309383e487f76d933c9b1d8c554c1dc28875ff20a6ed82fd97a75b53",
+      "modeling_sha256": "ffecc4bc309383e487f76d933c9b1d8c554c1dc28875ff20a6ed82fd97a75b53",
+      "byte_identical": true,
+      "size_bytes": 12063
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2308.csv",
+      "participant": "UoM2308",
+      "modality": "bolus_insulin",
+      "source_sha256": "445f9c62116cb6443f6cb7b85b01d0e5a11a3af055a9d9736d0cac8085119e8c",
+      "modeling_sha256": "445f9c62116cb6443f6cb7b85b01d0e5a11a3af055a9d9736d0cac8085119e8c",
+      "byte_identical": true,
+      "size_bytes": 9247
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2309.csv",
+      "participant": "UoM2309",
+      "modality": "bolus_insulin",
+      "source_sha256": "bf72dbff7b9850c47a19f0941f4f945dfa4676ada951d6b6bbd34ee01de5da5b",
+      "modeling_sha256": "bf72dbff7b9850c47a19f0941f4f945dfa4676ada951d6b6bbd34ee01de5da5b",
+      "byte_identical": true,
+      "size_bytes": 6568
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2310.csv",
+      "participant": "UoM2310",
+      "modality": "bolus_insulin",
+      "source_sha256": "43cb5fd61fe8f437b46aacb51cdd3b2ec2562cc7a76f6164019824d0529de494",
+      "modeling_sha256": "43cb5fd61fe8f437b46aacb51cdd3b2ec2562cc7a76f6164019824d0529de494",
+      "byte_identical": true,
+      "size_bytes": 13872
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2313.csv",
+      "participant": "UoM2313",
+      "modality": "bolus_insulin",
+      "source_sha256": "ed3be565de04c3c76cea99c39c19391d3c33f0fc742ec3036509d69c9cb4cbb4",
+      "modeling_sha256": "ed3be565de04c3c76cea99c39c19391d3c33f0fc742ec3036509d69c9cb4cbb4",
+      "byte_identical": true,
+      "size_bytes": 5552
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2314.csv",
+      "participant": "UoM2314",
+      "modality": "bolus_insulin",
+      "source_sha256": "ce20837b74c17e043a51521e60e7a8df0eacad996f99ee7a37b1b33f6511429d",
+      "modeling_sha256": "ce20837b74c17e043a51521e60e7a8df0eacad996f99ee7a37b1b33f6511429d",
+      "byte_identical": true,
+      "size_bytes": 8542
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2320.csv",
+      "participant": "UoM2320",
+      "modality": "bolus_insulin",
+      "source_sha256": "5e2af5607f51ede80aae4e53221fb340baaeb1fea15792ec5867b30fcd32d188",
+      "modeling_sha256": "5e2af5607f51ede80aae4e53221fb340baaeb1fea15792ec5867b30fcd32d188",
+      "byte_identical": true,
+      "size_bytes": 3645
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2401.csv",
+      "participant": "UoM2401",
+      "modality": "bolus_insulin",
+      "source_sha256": "1871d6c270fd8c414cea28249c158dd7004f1f42dbf9b57a78d1cbfd3b35ee24",
+      "modeling_sha256": "1871d6c270fd8c414cea28249c158dd7004f1f42dbf9b57a78d1cbfd3b35ee24",
+      "byte_identical": true,
+      "size_bytes": 5039
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2403.csv",
+      "participant": "UoM2403",
+      "modality": "bolus_insulin",
+      "source_sha256": "13e337576d3e272b84a10fcaa86794dbd7da26e44053adda0c6cfc9b142d37a2",
+      "modeling_sha256": "13e337576d3e272b84a10fcaa86794dbd7da26e44053adda0c6cfc9b142d37a2",
+      "byte_identical": true,
+      "size_bytes": 6467
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2404.csv",
+      "participant": "UoM2404",
+      "modality": "bolus_insulin",
+      "source_sha256": "adf1b9d890ed270d4535f80400f3c854eb78acebd7e380dc53e8bc203d2b240a",
+      "modeling_sha256": "adf1b9d890ed270d4535f80400f3c854eb78acebd7e380dc53e8bc203d2b240a",
+      "byte_identical": true,
+      "size_bytes": 7362
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2405.csv",
+      "participant": "UoM2405",
+      "modality": "bolus_insulin",
+      "source_sha256": "965efe8420556c9a0ef08d3987a9dcaef4ecdd0e53790506635c55f59f47e8cb",
+      "modeling_sha256": "965efe8420556c9a0ef08d3987a9dcaef4ecdd0e53790506635c55f59f47e8cb",
+      "byte_identical": true,
+      "size_bytes": 5813
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2301.csv",
+      "participant": "UoM2301",
+      "modality": "nutrition",
+      "source_sha256": "563f6cc379b958c78d0612549fc68bc169507d4803290b91a5b7c9f498275b7a",
+      "modeling_sha256": "563f6cc379b958c78d0612549fc68bc169507d4803290b91a5b7c9f498275b7a",
+      "byte_identical": true,
+      "size_bytes": 14538
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2302.csv",
+      "participant": "UoM2302",
+      "modality": "nutrition",
+      "source_sha256": "cf05176ae8dbe1ea6ea333d74ce2928a112a5f7d7b6ffa82ea93f0aefd30280f",
+      "modeling_sha256": "cf05176ae8dbe1ea6ea333d74ce2928a112a5f7d7b6ffa82ea93f0aefd30280f",
+      "byte_identical": true,
+      "size_bytes": 11469
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2304.csv",
+      "participant": "UoM2304",
+      "modality": "nutrition",
+      "source_sha256": "94a585173b2a7e82d2675cd0b13f3fdbc15de8657d918f743dd67dbb979a8e7a",
+      "modeling_sha256": "94a585173b2a7e82d2675cd0b13f3fdbc15de8657d918f743dd67dbb979a8e7a",
+      "byte_identical": true,
+      "size_bytes": 9375
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2305.csv",
+      "participant": "UoM2305",
+      "modality": "nutrition",
+      "source_sha256": "208a76562317a3b1a4f7a5467cdaf0237f278be6a2de9677e3d8434128e51ca7",
+      "modeling_sha256": "208a76562317a3b1a4f7a5467cdaf0237f278be6a2de9677e3d8434128e51ca7",
+      "byte_identical": true,
+      "size_bytes": 6756
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2306.csv",
+      "participant": "UoM2306",
+      "modality": "nutrition",
+      "source_sha256": "ab97dc07ec46cf8d9c892199fec3ff1ca3b8c4f1c64c47c25d3efbb1f99f0e3b",
+      "modeling_sha256": "ab97dc07ec46cf8d9c892199fec3ff1ca3b8c4f1c64c47c25d3efbb1f99f0e3b",
+      "byte_identical": true,
+      "size_bytes": 17233
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2307.csv",
+      "participant": "UoM2307",
+      "modality": "nutrition",
+      "source_sha256": "3b23e392267073c1db599ee36d09ed436d02a4357707375464ac4428882eed12",
+      "modeling_sha256": "3b23e392267073c1db599ee36d09ed436d02a4357707375464ac4428882eed12",
+      "byte_identical": true,
+      "size_bytes": 11161
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2308.csv",
+      "participant": "UoM2308",
+      "modality": "nutrition",
+      "source_sha256": "33cfb223e42122a88ab6e963e53f4ae9ec452a37d9bc6f4c33fa0d43dc542dc6",
+      "modeling_sha256": "33cfb223e42122a88ab6e963e53f4ae9ec452a37d9bc6f4c33fa0d43dc542dc6",
+      "byte_identical": true,
+      "size_bytes": 14061
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2309.csv",
+      "participant": "UoM2309",
+      "modality": "nutrition",
+      "source_sha256": "fa3778c349534eba12c9a52960947970ece1728afe93692f512a629e1866edc5",
+      "modeling_sha256": "fa3778c349534eba12c9a52960947970ece1728afe93692f512a629e1866edc5",
+      "byte_identical": true,
+      "size_bytes": 11710
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2313.csv",
+      "participant": "UoM2313",
+      "modality": "nutrition",
+      "source_sha256": "742d2c19930808bda5ab188bad14e516c8cdeb19b870fdeea73c983ffdc3fcf7",
+      "modeling_sha256": "742d2c19930808bda5ab188bad14e516c8cdeb19b870fdeea73c983ffdc3fcf7",
+      "byte_identical": true,
+      "size_bytes": 8798
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2314.csv",
+      "participant": "UoM2314",
+      "modality": "nutrition",
+      "source_sha256": "41e1d07d3b5f44618af3b07c842700e18cd7249312aa86a181bdd50b187a672a",
+      "modeling_sha256": "41e1d07d3b5f44618af3b07c842700e18cd7249312aa86a181bdd50b187a672a",
+      "byte_identical": true,
+      "size_bytes": 29493
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2320.csv",
+      "participant": "UoM2320",
+      "modality": "nutrition",
+      "source_sha256": "91f93b4c5076658f893055643352221fd562091345d909de477f7bd7e710a5a0",
+      "modeling_sha256": "91f93b4c5076658f893055643352221fd562091345d909de477f7bd7e710a5a0",
+      "byte_identical": true,
+      "size_bytes": 23796
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2401.csv",
+      "participant": "UoM2401",
+      "modality": "nutrition",
+      "source_sha256": "b58ca4b70964352540a8ab036426b9579b3e19d5f2b78c5bb9d44a6e073c4233",
+      "modeling_sha256": "b58ca4b70964352540a8ab036426b9579b3e19d5f2b78c5bb9d44a6e073c4233",
+      "byte_identical": true,
+      "size_bytes": 35654
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2403.csv",
+      "participant": "UoM2403",
+      "modality": "nutrition",
+      "source_sha256": "0f0b6690da54218af6b2dbefd6b4ba8b62e39e88bc64f9f4c75d4fd6d6f8794a",
+      "modeling_sha256": "0f0b6690da54218af6b2dbefd6b4ba8b62e39e88bc64f9f4c75d4fd6d6f8794a",
+      "byte_identical": true,
+      "size_bytes": 8767
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2404.csv",
+      "participant": "UoM2404",
+      "modality": "nutrition",
+      "source_sha256": "7785efbbdc888505e49565ee4f1db64a7a3d4b03fe6b2d3e621cc0afbfe3e5ae",
+      "modeling_sha256": "7785efbbdc888505e49565ee4f1db64a7a3d4b03fe6b2d3e621cc0afbfe3e5ae",
+      "byte_identical": true,
+      "size_bytes": 15676
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2405.csv",
+      "participant": "UoM2405",
+      "modality": "nutrition",
+      "source_sha256": "cceb528ae8c9d3edc60419307a02fc6c8aee3ceea2ccb82e1571fd65908f9099",
+      "modeling_sha256": "cceb528ae8c9d3edc60419307a02fc6c8aee3ceea2ccb82e1571fd65908f9099",
+      "byte_identical": true,
+      "size_bytes": 12949
+    },
+    {
+      "relative_path": "Sleep Data/UoM2302sleeptime.csv",
+      "participant": "UoM2302",
+      "modality": "sleep_summary",
+      "source_sha256": "fc62b9dac1c2ff56085a2e9eb901a0cfc279609776ca6621ae36ca47fbed7360",
+      "modeling_sha256": "fc62b9dac1c2ff56085a2e9eb901a0cfc279609776ca6621ae36ca47fbed7360",
+      "byte_identical": true,
+      "size_bytes": 240741
+    },
+    {
+      "relative_path": "Sleep Data/UoM2303sleeptime.csv",
+      "participant": "UoM2303",
+      "modality": "sleep_summary",
+      "source_sha256": "6c0dff63e47bb8cac6e9aebba9ee5579ac23f6f40747407adc589ab59d961cfb",
+      "modeling_sha256": "6c0dff63e47bb8cac6e9aebba9ee5579ac23f6f40747407adc589ab59d961cfb",
+      "byte_identical": true,
+      "size_bytes": 49244
+    },
+    {
+      "relative_path": "Sleep Data/UoM2304sleeptime.csv",
+      "participant": "UoM2304",
+      "modality": "sleep_summary",
+      "source_sha256": "15a92d10f9fc572d514ec412cf76b1a9706a9079b6d16cc7ed0fd44981fbf2a2",
+      "modeling_sha256": "15a92d10f9fc572d514ec412cf76b1a9706a9079b6d16cc7ed0fd44981fbf2a2",
+      "byte_identical": true,
+      "size_bytes": 190452
+    },
+    {
+      "relative_path": "Sleep Data/UoM2306sleeptime.csv",
+      "participant": "UoM2306",
+      "modality": "sleep_summary",
+      "source_sha256": "91334e9d85038566981d4011145b2f827848eecf9984f43a07c1f2959751091c",
+      "modeling_sha256": "91334e9d85038566981d4011145b2f827848eecf9984f43a07c1f2959751091c",
+      "byte_identical": true,
+      "size_bytes": 140228
+    },
+    {
+      "relative_path": "Sleep Data/UoM2307sleeptime.csv",
+      "participant": "UoM2307",
+      "modality": "sleep_summary",
+      "source_sha256": "d0dad446a6c3868cbb726f329041d215e47ca0ae4cbc2058503b87300f6af6d7",
+      "modeling_sha256": "d0dad446a6c3868cbb726f329041d215e47ca0ae4cbc2058503b87300f6af6d7",
+      "byte_identical": true,
+      "size_bytes": 221043
+    },
+    {
+      "relative_path": "Sleep Data/UoM2308sleeptime.csv",
+      "participant": "UoM2308",
+      "modality": "sleep_summary",
+      "source_sha256": "5d7c9bd8207647952863b73c3c39f5a7cf4b83b805d360a665c445a806809fcd",
+      "modeling_sha256": "5d7c9bd8207647952863b73c3c39f5a7cf4b83b805d360a665c445a806809fcd",
+      "byte_identical": true,
+      "size_bytes": 122393
+    },
+    {
+      "relative_path": "Sleep Data/UoM2309sleeptime.csv",
+      "participant": "UoM2309",
+      "modality": "sleep_summary",
+      "source_sha256": "cd1f2311290633c8049eb0d6697b2f51332c8e81c1637c4e14f54c4fddaf6492",
+      "modeling_sha256": "cd1f2311290633c8049eb0d6697b2f51332c8e81c1637c4e14f54c4fddaf6492",
+      "byte_identical": true,
+      "size_bytes": 206497
+    },
+    {
+      "relative_path": "Sleep Data/UoM2310sleeptime.csv",
+      "participant": "UoM2310",
+      "modality": "sleep_summary",
+      "source_sha256": "cb1dd5ca49f18695c8837633cb9c0b483c71df2435eaedf157cb9c9045b7a248",
+      "modeling_sha256": "cb1dd5ca49f18695c8837633cb9c0b483c71df2435eaedf157cb9c9045b7a248",
+      "byte_identical": true,
+      "size_bytes": 121771
+    },
+    {
+      "relative_path": "Sleep Data/UoM2312sleeptime.csv",
+      "participant": "UoM2312",
+      "modality": "sleep_summary",
+      "source_sha256": "434aa5c05ebe07251bab8abdf65883e3807421106ea66e099092fd110b29d3d1",
+      "modeling_sha256": "434aa5c05ebe07251bab8abdf65883e3807421106ea66e099092fd110b29d3d1",
+      "byte_identical": true,
+      "size_bytes": 99026
+    },
+    {
+      "relative_path": "Sleep Data/UoM2313sleeptime.csv",
+      "participant": "UoM2313",
+      "modality": "sleep_summary",
+      "source_sha256": "144b30810e452bbd42eb388a9505057de278cb4ec370eceaff028de6decdc05a",
+      "modeling_sha256": "144b30810e452bbd42eb388a9505057de278cb4ec370eceaff028de6decdc05a",
+      "byte_identical": true,
+      "size_bytes": 239282
+    },
+    {
+      "relative_path": "Sleep Data/UoM2314sleeptime.csv",
+      "participant": "UoM2314",
+      "modality": "sleep_summary",
+      "source_sha256": "d05b3cbb7d4041f25a5e8acb84f53b0c716d1dee02269226a2799afb5d8d44c3",
+      "modeling_sha256": "d05b3cbb7d4041f25a5e8acb84f53b0c716d1dee02269226a2799afb5d8d44c3",
+      "byte_identical": true,
+      "size_bytes": 140320
+    },
+    {
+      "relative_path": "Sleep Data/UoM2315sleeptime.csv",
+      "participant": "UoM2315",
+      "modality": "sleep_summary",
+      "source_sha256": "db149370673180538745dbbacaae60583f8d7b9fd01eafe4d46d0acc0bb773d8",
+      "modeling_sha256": "db149370673180538745dbbacaae60583f8d7b9fd01eafe4d46d0acc0bb773d8",
+      "byte_identical": true,
+      "size_bytes": 158393
+    },
+    {
+      "relative_path": "Sleep Data/UoM2320sleeptime.csv",
+      "participant": "UoM2320",
+      "modality": "sleep_summary",
+      "source_sha256": "355fc49f3d63a9065b3373b46b69522866d2a36a91cd2e5f7a557f7bbff63863",
+      "modeling_sha256": "355fc49f3d63a9065b3373b46b69522866d2a36a91cd2e5f7a557f7bbff63863",
+      "byte_identical": true,
+      "size_bytes": 140414
+    },
+    {
+      "relative_path": "Sleep Data/UoM2401sleeptime.csv",
+      "participant": "UoM2401",
+      "modality": "sleep_summary",
+      "source_sha256": "d895056d20e90d4cd84cf3653b0268614a54e2470e3f5bd5a807d8e687df30a0",
+      "modeling_sha256": "d895056d20e90d4cd84cf3653b0268614a54e2470e3f5bd5a807d8e687df30a0",
+      "byte_identical": true,
+      "size_bytes": 160666
+    },
+    {
+      "relative_path": "Sleep Data/UoM2403sleeptime.csv",
+      "participant": "UoM2403",
+      "modality": "sleep_summary",
+      "source_sha256": "b68e5665c6972384920df8b79a16fb2a80b241a248eec463c7e50afaa039a172",
+      "modeling_sha256": "b68e5665c6972384920df8b79a16fb2a80b241a248eec463c7e50afaa039a172",
+      "byte_identical": true,
+      "size_bytes": 161582
+    },
+    {
+      "relative_path": "Sleep Data/UoM2404sleeptime.csv",
+      "participant": "UoM2404",
+      "modality": "sleep_summary",
+      "source_sha256": "2d34c544dd57947e8cef7dec4c994ba0e81b5efa8d1ee9d011e5901c55e84405",
+      "modeling_sha256": "2d34c544dd57947e8cef7dec4c994ba0e81b5efa8d1ee9d011e5901c55e84405",
+      "byte_identical": true,
+      "size_bytes": 156587
+    },
+    {
+      "relative_path": "Sleep Data/UoM2405sleeptime.csv",
+      "participant": "UoM2405",
+      "modality": "sleep_summary",
+      "source_sha256": "45ec9518317a78aa8bccc7dc307c81caa04528ababf251cbd5eed98d9cdbf568",
+      "modeling_sha256": "45ec9518317a78aa8bccc7dc307c81caa04528ababf251cbd5eed98d9cdbf568",
+      "byte_identical": true,
+      "size_bytes": 120611
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2301.csv",
+      "participant": "UoM2301",
+      "modality": "sleep_timeseries",
+      "source_sha256": "6bdc2cf6b809632d95b235507886b326ebc70376127463559c2ca17d3114c6e6",
+      "modeling_sha256": "6bdc2cf6b809632d95b235507886b326ebc70376127463559c2ca17d3114c6e6",
+      "byte_identical": true,
+      "size_bytes": 814739
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2302.csv",
+      "participant": "UoM2302",
+      "modality": "sleep_timeseries",
+      "source_sha256": "4b387935734c1d1d2b8c8d9c82f753c496802272bb797a44f849898ab6826e8d",
+      "modeling_sha256": "4b387935734c1d1d2b8c8d9c82f753c496802272bb797a44f849898ab6826e8d",
+      "byte_identical": true,
+      "size_bytes": 737326
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2303.csv",
+      "participant": "UoM2303",
+      "modality": "sleep_timeseries",
+      "source_sha256": "686d8188e21fce8914f7a24bb26a590e008afbf6af117e3b84188e09770e1ddd",
+      "modeling_sha256": "686d8188e21fce8914f7a24bb26a590e008afbf6af117e3b84188e09770e1ddd",
+      "byte_identical": true,
+      "size_bytes": 536047
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2304.csv",
+      "participant": "UoM2304",
+      "modality": "sleep_timeseries",
+      "source_sha256": "01096ed628b7370031fc355e8b7795769986538c551215c9d26ce973eb8d663d",
+      "modeling_sha256": "01096ed628b7370031fc355e8b7795769986538c551215c9d26ce973eb8d663d",
+      "byte_identical": true,
+      "size_bytes": 1086934
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2305.csv",
+      "participant": "UoM2305",
+      "modality": "sleep_timeseries",
+      "source_sha256": "871864f735008acf6893833c3925118416b44f0408b4ed591f3b28ed382bcfe3",
+      "modeling_sha256": "871864f735008acf6893833c3925118416b44f0408b4ed591f3b28ed382bcfe3",
+      "byte_identical": true,
+      "size_bytes": 823407
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2306.csv",
+      "participant": "UoM2306",
+      "modality": "sleep_timeseries",
+      "source_sha256": "39e456d309f6fa74dd0d0ea215d6d0c79b2501c7fdf2d7aeb37a166d15ef57bd",
+      "modeling_sha256": "39e456d309f6fa74dd0d0ea215d6d0c79b2501c7fdf2d7aeb37a166d15ef57bd",
+      "byte_identical": true,
+      "size_bytes": 824575
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2307.csv",
+      "participant": "UoM2307",
+      "modality": "sleep_timeseries",
+      "source_sha256": "0e79e6d9d0bd0ad69358457097799c3b2620527899209d587b7f6cd0066e2381",
+      "modeling_sha256": "0e79e6d9d0bd0ad69358457097799c3b2620527899209d587b7f6cd0066e2381",
+      "byte_identical": true,
+      "size_bytes": 827204
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2308.csv",
+      "participant": "UoM2308",
+      "modality": "sleep_timeseries",
+      "source_sha256": "961ef7ba322b2aff4450c5d336b735688327e56bfed5954a7872ca1a25238678",
+      "modeling_sha256": "961ef7ba322b2aff4450c5d336b735688327e56bfed5954a7872ca1a25238678",
+      "byte_identical": true,
+      "size_bytes": 828322
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2309.csv",
+      "participant": "UoM2309",
+      "modality": "sleep_timeseries",
+      "source_sha256": "c71e095aac698eb86dc5ab40f2a00305c2dad49342b3c79cd50570eb1674890e",
+      "modeling_sha256": "c71e095aac698eb86dc5ab40f2a00305c2dad49342b3c79cd50570eb1674890e",
+      "byte_identical": true,
+      "size_bytes": 837651
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2310.csv",
+      "participant": "UoM2310",
+      "modality": "sleep_timeseries",
+      "source_sha256": "1b9647b3e8fc38fa79882998817a320a5dc30a255186fa6c0939baa0d0196221",
+      "modeling_sha256": "1b9647b3e8fc38fa79882998817a320a5dc30a255186fa6c0939baa0d0196221",
+      "byte_identical": true,
+      "size_bytes": 484547
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2313.csv",
+      "participant": "UoM2313",
+      "modality": "sleep_timeseries",
+      "source_sha256": "18864ab2019cc2d10a7b9311f0b2d4fbc10aad6a043b0bed21b6fe7553cabbd2",
+      "modeling_sha256": "18864ab2019cc2d10a7b9311f0b2d4fbc10aad6a043b0bed21b6fe7553cabbd2",
+      "byte_identical": true,
+      "size_bytes": 313776
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2320.csv",
+      "participant": "UoM2320",
+      "modality": "sleep_timeseries",
+      "source_sha256": "cbbb15227aab2092256d994791762b2d11099ce66600e6a1310e3d59cadb7425",
+      "modeling_sha256": "cbbb15227aab2092256d994791762b2d11099ce66600e6a1310e3d59cadb7425",
+      "byte_identical": true,
+      "size_bytes": 822649
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2401.csv",
+      "participant": "UoM2401",
+      "modality": "sleep_timeseries",
+      "source_sha256": "f6f513f45e844f93fd787c176895fe18244a53edc0fe416d29ef2a23f422855c",
+      "modeling_sha256": "f6f513f45e844f93fd787c176895fe18244a53edc0fe416d29ef2a23f422855c",
+      "byte_identical": true,
+      "size_bytes": 1006380
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2404.csv",
+      "participant": "UoM2404",
+      "modality": "sleep_timeseries",
+      "source_sha256": "afe8853d1a6a7bfc5d9ae0c73405140cdbe28317e0a160573a6327d6e024d965",
+      "modeling_sha256": "afe8853d1a6a7bfc5d9ae0c73405140cdbe28317e0a160573a6327d6e024d965",
+      "byte_identical": true,
+      "size_bytes": 895054
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2405.csv",
+      "participant": "UoM2405",
+      "modality": "sleep_timeseries",
+      "source_sha256": "a8ff844241667172585d81cfd04dfed0a6a66b3e5a3dcfe9f7fc3e3cfe21f5a6",
+      "modeling_sha256": "a8ff844241667172585d81cfd04dfed0a6a66b3e5a3dcfe9f7fc3e3cfe21f5a6",
+      "byte_identical": true,
+      "size_bytes": 79778
+    }
+  ],
+  "architecture": {
+    "glucose": "GRU",
+    "insulin": "GRU",
+    "nutrition": "GRU",
+    "activity": "GRU",
+    "sleep": "GRU",
+    "fusion": "MLP"
+  },
+  "verification": {
+    "source_file_count_pass": true,
+    "exclusion_count_pass": true,
+    "modeling_file_count_pass": true,
+    "exact_exclusion_set_pass": true,
+    "retained_files_byte_identical": true,
+    "frozen_cohort_pass": true,
+    "additional_eligibility_recorded": true,
+    "uom2301_five_modality_pass": true
+  }
+}

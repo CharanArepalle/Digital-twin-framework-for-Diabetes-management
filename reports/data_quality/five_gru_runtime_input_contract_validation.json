@@ -1,0 +1,5349 @@
+{
+  "audit_name": "T1D-UOM FIVE-GRU RUNTIME INPUT CONTRACT VALIDATION",
+  "audit_version": "2.0.0",
+  "read_only": true,
+  "source_files_modified": false,
+  "sequence_input_files_modified": false,
+  "windows_created": false,
+  "targets_created": false,
+  "imputation_performed": false,
+  "normalization_performed": false,
+  "categorical_encoding_written_to_source": false,
+  "model_training_performed": false,
+  "project_root": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project",
+  "sequence_input_directory": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_sequence_inputs",
+  "report_path": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\reports\\data_quality\\five_gru_runtime_input_contract_validation.json",
+  "frozen_architecture": {
+    "branches": {
+      "glucose": "GRU -> zG",
+      "insulin": "GRU -> zI",
+      "nutrition": "GRU -> zN",
+      "activity": "GRU -> zA",
+      "sleep": "GRU -> zS"
+    },
+    "branch_count": 5,
+    "mlp_fusion_implemented": false,
+    "digital_twin_implemented": false,
+    "prediction_implemented": false,
+    "what_if_implemented": false,
+    "interactive_ui_implemented": false
+  },
+  "physical_contract": {
+    "glucose": {
+      "folder": "Glucose Data",
+      "timestamp": "bg_ts",
+      "numeric": [
+        "value"
+      ],
+      "categorical": [],
+      "structured": [],
+      "expected_dim": 1
+    },
+    "nutrition": {
+      "folder": "Nutrition Data",
+      "timestamp": "meal_ts",
+      "numeric": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "categorical": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "structured": [],
+      "expected_dim": 6
+    },
+    "activity": {
+      "folder": "Activity Data",
+      "timestamp": "activity_ts",
+      "numeric": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "categorical": [
+        "activity_type",
+        "intensity"
+      ],
+      "structured": [],
+      "expected_dim": 12
+    },
+    "basal_insulin": {
+      "folder": "Insulin Data/Basal Data",
+      "timestamp": "basal_ts",
+      "numeric": [
+        "basal_dose"
+      ],
+      "categorical": [
+        "insulin_kind"
+      ],
+      "structured": [],
+      "expected_dim": 2
+    },
+    "bolus_insulin": {
+      "folder": "Insulin Data/Bolus Data",
+      "timestamp": "bolus_ts",
+      "numeric": [
+        "bolus_dose"
+      ],
+      "categorical": [],
+      "structured": [],
+      "expected_dim": 1
+    },
+    "sleep_summary": {
+      "folder": "Sleep Data",
+      "timestamp": "start_date_ts",
+      "numeric": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "categorical": [
+        "calendar_date",
+        "validation"
+      ],
+      "structured": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "expected_dim": 14
+    },
+    "sleep_timeseries": {
+      "folder": "Sleep Data",
+      "timestamp": "sleep_ts",
+      "numeric": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "categorical": [],
+      "structured": [],
+      "expected_dim": 6
+    }
+  },
+  "runtime_representation_policy": {
+    "numeric_features": "remain numeric; this validator does not transform them",
+    "categorical_features": "remain raw strings; this validator does not encode them",
+    "categorical_vocabulary": "training-only fitting in the controlled representation stage",
+    "unknown_category_policy": "UNK",
+    "missing_category_policy": "MISSING",
+    "padding_policy": "PAD",
+    "embedding_dimensions": "NOT FROZEN BY THIS AUDIT"
+  },
+  "inventory": {
+    "files_discovered": 86,
+    "files_audited": 86,
+    "expected_files": 86,
+    "file_count_status": "PASS"
+  },
+  "cohort": {
+    "participants": [
+      "UoM2301",
+      "UoM2302",
+      "UoM2304",
+      "UoM2305",
+      "UoM2306",
+      "UoM2307",
+      "UoM2308",
+      "UoM2309",
+      "UoM2313",
+      "UoM2314",
+      "UoM2401",
+      "UoM2403",
+      "UoM2405"
+    ],
+    "participant_count": 13,
+    "expected_participant_count": 13,
+    "status": "PASS",
+    "missing_participants": [],
+    "unexpected_participants": []
+  },
+  "modality_counts": {
+    "activity": {
+      "observed": 13,
+      "expected": 13,
+      "status": "PASS"
+    },
+    "glucose": {
+      "observed": 13,
+      "expected": 13,
+      "status": "PASS"
+    },
+    "basal_insulin": {
+      "observed": 12,
+      "expected": 12,
+      "status": "PASS"
+    },
+    "bolus_insulin": {
+      "observed": 13,
+      "expected": 13,
+      "status": "PASS"
+    },
+    "nutrition": {
+      "observed": 13,
+      "expected": 13,
+      "status": "PASS"
+    },
+    "sleep_summary": {
+      "observed": 11,
+      "expected": 11,
+      "status": "PASS"
+    },
+    "sleep_timeseries": {
+      "observed": 11,
+      "expected": 11,
+      "status": "PASS"
+    }
+  },
+  "timestamp_policy": {
+    "accepted_dayfirst": [
+      "%d/%m/%Y",
+      "%d/%m/%Y %H:%M",
+      "%d/%m/%Y %H:%M:%S",
+      "%d/%m/%Y %H:%M:%S.%f"
+    ],
+    "accepted_standard": [
+      "%Y-%m-%d",
+      "%Y-%m-%d %H:%M",
+      "%Y-%m-%d %H:%M:%S",
+      "%Y-%m-%d %H:%M:%S.%f",
+      "ISO-8601 T form"
+    ],
+    "strategy_counts": {
+      "dayfirst_datetime": 703426,
+      "dayfirst_date": 4
+    },
+    "timestamp_failures": []
+  },
+  "summary": {
+    "schema_failures": 0,
+    "numeric_failures": 0,
+    "categorical_failures": 0,
+    "structured_failures": 0,
+    "timestamp_failures": 0,
+    "files_requiring_missing_value_review": 29,
+    "overall_status": "PASS"
+  },
+  "failure_lists": {
+    "participant_failures": [],
+    "unknown_participants": [],
+    "missing_participants": [],
+    "modality_failures": {},
+    "schema_failures": [],
+    "numeric_failures": [],
+    "categorical_failures": [],
+    "structured_failures": [],
+    "timestamp_failures": []
+  },
+  "missing_value_reviews": [
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2302.csv",
+      "missing_numeric_values": {
+        "bolus_dose": 1
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2304.csv",
+      "missing_numeric_values": {
+        "bolus_dose": 1
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2305.csv",
+      "missing_numeric_values": {
+        "bolus_dose": 2
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2306.csv",
+      "missing_numeric_values": {
+        "bolus_dose": 96
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2314.csv",
+      "missing_numeric_values": {
+        "bolus_dose": 92
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2301.csv",
+      "missing_numeric_values": {
+        "prot_g": 7,
+        "fat_g": 7,
+        "fibre_g": 41
+      },
+      "categorical_missing_values": {
+        "meal_tag": 5
+      },
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2302.csv",
+      "missing_numeric_values": {
+        "carbs_g": 1,
+        "prot_g": 3,
+        "fat_g": 3,
+        "fibre_g": 13
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2304.csv",
+      "missing_numeric_values": {
+        "fibre_g": 1
+      },
+      "categorical_missing_values": {
+        "meal_tag": 1
+      },
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2305.csv",
+      "missing_numeric_values": {
+        "carbs_g": 4,
+        "prot_g": 5,
+        "fat_g": 5,
+        "fibre_g": 10
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2306.csv",
+      "missing_numeric_values": {
+        "carbs_g": 2,
+        "prot_g": 113,
+        "fat_g": 113,
+        "fibre_g": 113
+      },
+      "categorical_missing_values": {
+        "meal_type": 44,
+        "meal_tag": 42
+      },
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2307.csv",
+      "missing_numeric_values": {
+        "prot_g": 3,
+        "fat_g": 3,
+        "fibre_g": 3
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2308.csv",
+      "missing_numeric_values": {
+        "carbs_g": 1,
+        "prot_g": 3,
+        "fat_g": 3,
+        "fibre_g": 30
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2309.csv",
+      "missing_numeric_values": {
+        "carbs_g": 3,
+        "prot_g": 3,
+        "fat_g": 3,
+        "fibre_g": 3
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2313.csv",
+      "missing_numeric_values": {
+        "carbs_g": 3,
+        "prot_g": 3,
+        "fat_g": 4,
+        "fibre_g": 29
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2314.csv",
+      "missing_numeric_values": {
+        "carbs_g": 25,
+        "prot_g": 37,
+        "fat_g": 37,
+        "fibre_g": 48
+      },
+      "categorical_missing_values": {
+        "meal_type": 4,
+        "meal_tag": 12
+      },
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2401.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {
+        "meal_type": 199
+      },
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2403.csv",
+      "missing_numeric_values": {
+        "prot_g": 63,
+        "fat_g": 63,
+        "fibre_g": 71
+      },
+      "categorical_missing_values": {
+        "meal_tag": 1
+      },
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2405.csv",
+      "missing_numeric_values": {
+        "carbs_g": 1,
+        "prot_g": 1,
+        "fat_g": 1,
+        "fibre_g": 4
+      },
+      "categorical_missing_values": {},
+      "structured_empty_values": {}
+    },
+    {
+      "relative_path": "Sleep Data/UoM2302sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 1,
+        "sleep_levels_map_rem": 29,
+        "sleep_levels_map_unmeasurable": 89
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2304sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_light": 16,
+        "sleep_levels_map_awake": 1,
+        "sleep_levels_map_rem": 18,
+        "sleep_levels_map_unmeasurable": 108
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2306sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_deep": 1,
+        "sleep_levels_map_awake": 2,
+        "sleep_levels_map_rem": 23,
+        "sleep_levels_map_unmeasurable": 84
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2307sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 1,
+        "sleep_levels_map_rem": 1,
+        "sleep_levels_map_unmeasurable": 90
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2308sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 3,
+        "sleep_levels_map_rem": 2,
+        "sleep_levels_map_unmeasurable": 70
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2309sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 2,
+        "sleep_levels_map_rem": 2,
+        "sleep_levels_map_unmeasurable": 75
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2313sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_light": 2,
+        "sleep_levels_map_awake": 2,
+        "sleep_levels_map_rem": 27,
+        "sleep_levels_map_unmeasurable": 83
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2314sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_deep": 24,
+        "sleep_levels_map_awake": 5,
+        "sleep_levels_map_rem": 1,
+        "sleep_levels_map_unmeasurable": 85
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2401sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 3,
+        "sleep_levels_map_rem": 3,
+        "sleep_levels_map_unmeasurable": 65
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2403sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_deep": 22,
+        "sleep_levels_map_awake": 11,
+        "sleep_levels_map_rem": 1,
+        "sleep_levels_map_unmeasurable": 84
+      }
+    },
+    {
+      "relative_path": "Sleep Data/UoM2405sleeptime.csv",
+      "missing_numeric_values": {},
+      "categorical_missing_values": {},
+      "structured_empty_values": {
+        "sleep_levels_map_light": 1,
+        "sleep_levels_map_awake": 19,
+        "sleep_levels_map_rem": 36,
+        "sleep_levels_map_unmeasurable": 66
+      }
+    }
+  ],
+  "manifests": {
+    "modeling_dataset_manifest": {
+      "path": "reports/data_quality/modeling_dataset_manifest.json",
+      "exists": true,
+      "readable": true,
+      "status": "PASS"
+    },
+    "sequence_input_preparation_manifest": {
+      "path": "reports/data_quality/sequence_input_preparation_manifest.json",
+      "exists": true,
+      "readable": true,
+      "status": "PASS"
+    }
+  },
+  "files": [
+    {
+      "relative_path": "Activity Data/UoMActivity2301.csv",
+      "participant": "UoM2301",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 10203,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 10203
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 10203,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2302.csv",
+      "participant": "UoM2302",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 19351,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 19351
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 19351,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2304.csv",
+      "participant": "UoM2304",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 18824,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 18824
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 5,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 18824,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2305.csv",
+      "participant": "UoM2305",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 26407,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 26407
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 5,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 26407,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2306.csv",
+      "participant": "UoM2306",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 11939,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 11939
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 5,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 11939,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2307.csv",
+      "participant": "UoM2307",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 13116,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 13116
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 13116,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2308.csv",
+      "participant": "UoM2308",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 10561,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 10561
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 5,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 10561,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2309.csv",
+      "participant": "UoM2309",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 11587,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 11587
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 11587,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2313.csv",
+      "participant": "UoM2313",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 16062,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 16062
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 16062,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2314.csv",
+      "participant": "UoM2314",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 12757,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 12757
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 12757,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2401.csv",
+      "participant": "UoM2401",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 10337,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 10337
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 10337,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2403.csv",
+      "participant": "UoM2403",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 11548,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 11548
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 11548,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Activity Data/UoMActivity2405.csv",
+      "participant": "UoM2405",
+      "modality": "activity",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "activity_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 11994,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 11994
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "expected_categorical_columns": [
+        "activity_type",
+        "intensity"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "activity_ts",
+        "activity_type",
+        "active_Kcal",
+        "step_count",
+        "distance_m",
+        "duration_s",
+        "active_time_s",
+        "start_time_s",
+        "start_time_offset_s",
+        "met",
+        "intensity",
+        "motion_intensity_mean",
+        "motion_intensity_max"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "activity_type": 4,
+        "intensity": 3
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 11994,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2301.csv",
+      "participant": "UoM2301",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 45768,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 45768
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 45768,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2302.csv",
+      "participant": "UoM2302",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 13656,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 13656
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 13656,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2304.csv",
+      "participant": "UoM2304",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 39512,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 39512
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 39512,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2305.csv",
+      "participant": "UoM2305",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 7190,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 7190
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 7190,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2306.csv",
+      "participant": "UoM2306",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 11710,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 11710
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 11710,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2307.csv",
+      "participant": "UoM2307",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 8385,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 8385
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 8385,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2308.csv",
+      "participant": "UoM2308",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 28694,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 28694
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 28694,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2309.csv",
+      "participant": "UoM2309",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 20665,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 20665
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 20665,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2313.csv",
+      "participant": "UoM2313",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 30832,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 30832
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 30832,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2314.csv",
+      "participant": "UoM2314",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 12783,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 12783
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 12783,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2401.csv",
+      "participant": "UoM2401",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 15047,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 15047
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 15047,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2403.csv",
+      "participant": "UoM2403",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 12860,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 12860
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 12860,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Glucose Data/UoMGlucose2405.csv",
+      "participant": "UoM2405",
+      "modality": "glucose",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bg_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 12547,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 12547
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "value"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bg_ts",
+        "value"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 12547,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2302.csv",
+      "participant": "UoM2302",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 34,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 34
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 34,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2304.csv",
+      "participant": "UoM2304",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 228,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 228
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 228,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2305.csv",
+      "participant": "UoM2305",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 31,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 31
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 31,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2306.csv",
+      "participant": "UoM2306",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 82,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 82
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 82,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2307.csv",
+      "participant": "UoM2307",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 6890,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 6890
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 6890,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2308.csv",
+      "participant": "UoM2308",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 806,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 806
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 806,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2309.csv",
+      "participant": "UoM2309",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 625,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 625
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 625,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2313.csv",
+      "participant": "UoM2313",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 101,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 101
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 101,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2314.csv",
+      "participant": "UoM2314",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 91,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 91
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 91,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2401.csv",
+      "participant": "UoM2401",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 95,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 95
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 95,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2403.csv",
+      "participant": "UoM2403",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 12,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 12
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 12,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Basal Data/UoMBasal2405.csv",
+      "participant": "UoM2405",
+      "modality": "basal_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "basal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 159,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 159
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "basal_dose"
+      ],
+      "expected_categorical_columns": [
+        "insulin_kind"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "basal_ts",
+        "basal_dose",
+        "insulin_kind"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "insulin_kind": 1
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 159,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2301.csv",
+      "participant": "UoM2301",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 677,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 677
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 677,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2302.csv",
+      "participant": "UoM2302",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 178,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 178
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "bolus_dose": 1
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 178,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2304.csv",
+      "participant": "UoM2304",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 204,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 204
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "bolus_dose": 1
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 204,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2305.csv",
+      "participant": "UoM2305",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 166,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 166
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "bolus_dose": 2
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 166,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2306.csv",
+      "participant": "UoM2306",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 519,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 519
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "bolus_dose": 96
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 519,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2307.csv",
+      "participant": "UoM2307",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 524,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 524
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 524,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2308.csv",
+      "participant": "UoM2308",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 396,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 396
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 396,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2309.csv",
+      "participant": "UoM2309",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 289,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 289
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 289,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2313.csv",
+      "participant": "UoM2313",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 266,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 266
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 266,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2314.csv",
+      "participant": "UoM2314",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 426,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 426
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "bolus_dose": 92
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 426,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2401.csv",
+      "participant": "UoM2401",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 246,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 246
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 246,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2403.csv",
+      "participant": "UoM2403",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 322,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 322
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 322,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Insulin Data/Bolus Data/UoMBolus2405.csv",
+      "participant": "UoM2405",
+      "modality": "bolus_insulin",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "bolus_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 289,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 289
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "bolus_dose"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "bolus_ts",
+        "bolus_dose"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 289,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2301.csv",
+      "participant": "UoM2301",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 302,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 302
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "prot_g": 7,
+        "fat_g": 7,
+        "fibre_g": 41
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {
+        "meal_tag": 5
+      },
+      "categorical_cardinality": {
+        "meal_type": 6,
+        "meal_tag": 131
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 302,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2302.csv",
+      "participant": "UoM2302",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 220,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 220
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "carbs_g": 1,
+        "prot_g": 3,
+        "fat_g": 3,
+        "fibre_g": 13
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "meal_type": 5,
+        "meal_tag": 148
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 220,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2304.csv",
+      "participant": "UoM2304",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 203,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 203
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "fibre_g": 1
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {
+        "meal_tag": 1
+      },
+      "categorical_cardinality": {
+        "meal_type": 6,
+        "meal_tag": 139
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 203,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2305.csv",
+      "participant": "UoM2305",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 127,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 127
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "carbs_g": 4,
+        "prot_g": 5,
+        "fat_g": 5,
+        "fibre_g": 10
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "meal_type": 4,
+        "meal_tag": 98
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 127,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2306.csv",
+      "participant": "UoM2306",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 367,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 367
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "carbs_g": 2,
+        "prot_g": 113,
+        "fat_g": 113,
+        "fibre_g": 113
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {
+        "meal_type": 44,
+        "meal_tag": 42
+      },
+      "categorical_cardinality": {
+        "meal_type": 4,
+        "meal_tag": 128
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 367,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2307.csv",
+      "participant": "UoM2307",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 233,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 233
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "prot_g": 3,
+        "fat_g": 3,
+        "fibre_g": 3
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "meal_type": 4,
+        "meal_tag": 133
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 233,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2308.csv",
+      "participant": "UoM2308",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 243,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 243
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "carbs_g": 1,
+        "prot_g": 3,
+        "fat_g": 3,
+        "fibre_g": 30
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "meal_type": 4,
+        "meal_tag": 122
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 243,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2309.csv",
+      "participant": "UoM2309",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 213,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 209,
+        "dayfirst_date": 4
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "carbs_g": 3,
+        "prot_g": 3,
+        "fat_g": 3,
+        "fibre_g": 3
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "meal_type": 9,
+        "meal_tag": 131
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 213,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2313.csv",
+      "participant": "UoM2313",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 184,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 184
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "carbs_g": 3,
+        "prot_g": 3,
+        "fat_g": 4,
+        "fibre_g": 29
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "meal_type": 6,
+        "meal_tag": 129
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 184,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2314.csv",
+      "participant": "UoM2314",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 558,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 558
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "carbs_g": 25,
+        "prot_g": 37,
+        "fat_g": 37,
+        "fibre_g": 48
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {
+        "meal_type": 4,
+        "meal_tag": 12
+      },
+      "categorical_cardinality": {
+        "meal_type": 9,
+        "meal_tag": 292
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 558,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2401.csv",
+      "participant": "UoM2401",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 488,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 488
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {
+        "meal_type": 199
+      },
+      "categorical_cardinality": {
+        "meal_type": 4,
+        "meal_tag": 401
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 488,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2403.csv",
+      "participant": "UoM2403",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 181,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 181
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "prot_g": 63,
+        "fat_g": 63,
+        "fibre_g": 71
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {
+        "meal_tag": 1
+      },
+      "categorical_cardinality": {
+        "meal_type": 4,
+        "meal_tag": 86
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 181,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Nutrition Data/UoMNutrition2405.csv",
+      "participant": "UoM2405",
+      "modality": "nutrition",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "meal_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 256,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 256
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "expected_categorical_columns": [
+        "meal_type",
+        "meal_tag"
+      ],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "meal_ts",
+        "meal_type",
+        "meal_tag",
+        "carbs_g",
+        "prot_g",
+        "fat_g",
+        "fibre_g"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {
+        "carbs_g": 1,
+        "prot_g": 1,
+        "fat_g": 1,
+        "fibre_g": 4
+      },
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "meal_type": 4,
+        "meal_tag": 201
+      },
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 256,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2302sleeptime.csv",
+      "participant": "UoM2302",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 129,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 129
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 127,
+        "validation": 2
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 1,
+        "sleep_levels_map_rem": 29,
+        "sleep_levels_map_unmeasurable": 89
+      },
+      "invalid_structured_values": {},
+      "row_count": 129,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2304sleeptime.csv",
+      "participant": "UoM2304",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 116,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 116
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 116,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_light": 16,
+        "sleep_levels_map_awake": 1,
+        "sleep_levels_map_rem": 18,
+        "sleep_levels_map_unmeasurable": 108
+      },
+      "invalid_structured_values": {},
+      "row_count": 116,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2306sleeptime.csv",
+      "participant": "UoM2306",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 84,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 84
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 83,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_deep": 1,
+        "sleep_levels_map_awake": 2,
+        "sleep_levels_map_rem": 23,
+        "sleep_levels_map_unmeasurable": 84
+      },
+      "invalid_structured_values": {},
+      "row_count": 84,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2307sleeptime.csv",
+      "participant": "UoM2307",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 90,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 90
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 89,
+        "validation": 2
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 1,
+        "sleep_levels_map_rem": 1,
+        "sleep_levels_map_unmeasurable": 90
+      },
+      "invalid_structured_values": {},
+      "row_count": 90,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2308sleeptime.csv",
+      "participant": "UoM2308",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 71,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 71
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 71,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 3,
+        "sleep_levels_map_rem": 2,
+        "sleep_levels_map_unmeasurable": 70
+      },
+      "invalid_structured_values": {},
+      "row_count": 71,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2309sleeptime.csv",
+      "participant": "UoM2309",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 83,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 83
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 82,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 2,
+        "sleep_levels_map_rem": 2,
+        "sleep_levels_map_unmeasurable": 75
+      },
+      "invalid_structured_values": {},
+      "row_count": 83,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2313sleeptime.csv",
+      "participant": "UoM2313",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 94,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 94
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 94,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_light": 2,
+        "sleep_levels_map_awake": 2,
+        "sleep_levels_map_rem": 27,
+        "sleep_levels_map_unmeasurable": 83
+      },
+      "invalid_structured_values": {},
+      "row_count": 94,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2314sleeptime.csv",
+      "participant": "UoM2314",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 88,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 88
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 88,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_deep": 24,
+        "sleep_levels_map_awake": 5,
+        "sleep_levels_map_rem": 1,
+        "sleep_levels_map_unmeasurable": 85
+      },
+      "invalid_structured_values": {},
+      "row_count": 88,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2401sleeptime.csv",
+      "participant": "UoM2401",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 69,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 69
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 69,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_awake": 3,
+        "sleep_levels_map_rem": 3,
+        "sleep_levels_map_unmeasurable": 65
+      },
+      "invalid_structured_values": {},
+      "row_count": 69,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2403sleeptime.csv",
+      "participant": "UoM2403",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 86,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 86
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 86,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_deep": 22,
+        "sleep_levels_map_awake": 11,
+        "sleep_levels_map_rem": 1,
+        "sleep_levels_map_unmeasurable": 84
+      },
+      "invalid_structured_values": {},
+      "row_count": 86,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoM2405sleeptime.csv",
+      "participant": "UoM2405",
+      "modality": "sleep_summary",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "start_date_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 78,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 78
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "duration_in_sec",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s"
+      ],
+      "expected_categorical_columns": [
+        "calendar_date",
+        "validation"
+      ],
+      "expected_structured_columns": [
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable"
+      ],
+      "actual_columns": [
+        "calendar_date",
+        "duration_in_sec",
+        "start_date_ts",
+        "start_time_offset_s",
+        "unmeasurable_sleep_s",
+        "deep_sleep_s",
+        "light_sleep_s",
+        "rem_sleep_s",
+        "awake_s",
+        "sleep_levels_map_deep",
+        "sleep_levels_map_light",
+        "sleep_levels_map_awake",
+        "sleep_levels_map_rem",
+        "sleep_levels_map_unmeasurable",
+        "validation"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {
+        "calendar_date": 78,
+        "validation": 3
+      },
+      "structured_empty_values": {
+        "sleep_levels_map_light": 1,
+        "sleep_levels_map_awake": 19,
+        "sleep_levels_map_rem": 36,
+        "sleep_levels_map_unmeasurable": 66
+      },
+      "invalid_structured_values": {},
+      "row_count": 78,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2301.csv",
+      "participant": "UoM2301",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 24193,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 24193
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 24193,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2302.csv",
+      "participant": "UoM2302",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 21889,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 21889
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 21889,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2304.csv",
+      "participant": "UoM2304",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 31969,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 31969
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 31969,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2305.csv",
+      "participant": "UoM2305",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 24193,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 24193
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 24193,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2306.csv",
+      "participant": "UoM2306",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 24193,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 24193
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 24193,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2307.csv",
+      "participant": "UoM2307",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 24193,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 24193
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 24193,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2308.csv",
+      "participant": "UoM2308",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 24192,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 24192
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 24192,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2309.csv",
+      "participant": "UoM2309",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 24769,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 24769
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 24769,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2313.csv",
+      "participant": "UoM2313",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 9260,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 9260
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 9260,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2401.csv",
+      "participant": "UoM2401",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 29665,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 29665
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 29665,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "relative_path": "Sleep Data/UoMsleep2405.csv",
+      "participant": "UoM2405",
+      "modality": "sleep_timeseries",
+      "status": "PASS",
+      "schema_status": "PASS",
+      "numeric_status": "PASS",
+      "categorical_status": "PASS",
+      "structured_status": "PASS",
+      "timestamp_status": "PASS",
+      "timestamp_column": "sleep_ts",
+      "timestamp_missing_count": 0,
+      "timestamp_parseable_count": 2360,
+      "timestamp_unparseable_non_missing_count": 0,
+      "timestamp_strategy_counts": {
+        "dayfirst_datetime": 2360
+      },
+      "timestamp_invalid_examples": [],
+      "timestamp_suspicious_year_count": 0,
+      "expected_numeric_columns": [
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "expected_categorical_columns": [],
+      "expected_structured_columns": [],
+      "actual_columns": [
+        "sleep_ts",
+        "step_count",
+        "heart_rate",
+        "current_activity_type_intensity",
+        "stress_level_value",
+        "sleep_level",
+        "resting_heart_rate"
+      ],
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "missing_numeric_values": {},
+      "invalid_numeric_values": {},
+      "invalid_numeric_examples": {},
+      "categorical_missing_values": {},
+      "categorical_cardinality": {},
+      "structured_empty_values": {},
+      "invalid_structured_values": {},
+      "row_count": 2360,
+      "read_error": null,
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

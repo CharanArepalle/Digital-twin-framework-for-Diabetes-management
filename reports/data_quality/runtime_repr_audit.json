@@ -1,0 +1,5200 @@
+{
+  "audit_name": "T1D-UOM Runtime Representation Contract Audit",
+  "audit_version": "2.0.0",
+  "read_only": true,
+  "project_root": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project",
+  "sequence_input_directory": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\data\\derived\\t1d_uom_v1.0.3_sequence_inputs",
+  "report_path": "C:\\Users\\chara\\OneDrive\\Desktop\\DL_Project\\reports\\data_quality\\runtime_repr_audit.json",
+  "frozen_expectations": {
+    "file_count": 86,
+    "participants": [
+      "UoM2301",
+      "UoM2302",
+      "UoM2304",
+      "UoM2305",
+      "UoM2306",
+      "UoM2307",
+      "UoM2308",
+      "UoM2309",
+      "UoM2313",
+      "UoM2314",
+      "UoM2401",
+      "UoM2403",
+      "UoM2405"
+    ],
+    "modality_counts": {
+      "activity": 13,
+      "glucose": 13,
+      "basal_insulin": 12,
+      "bolus_insulin": 13,
+      "nutrition": 13,
+      "sleep_summary": 11,
+      "sleep_timeseries": 11
+    }
+  },
+  "inventory": {
+    "files_discovered": 86,
+    "files_audited": 86,
+    "status": "PASS"
+  },
+  "identification": {
+    "status": "PASS",
+    "failure_count": 0,
+    "failures": []
+  },
+  "coverage": {
+    "status": "PASS",
+    "actual_participants": [
+      "UoM2301",
+      "UoM2302",
+      "UoM2304",
+      "UoM2305",
+      "UoM2306",
+      "UoM2307",
+      "UoM2308",
+      "UoM2309",
+      "UoM2313",
+      "UoM2314",
+      "UoM2401",
+      "UoM2403",
+      "UoM2405"
+    ],
+    "missing_participants": [],
+    "unexpected_participants": [],
+    "duplicate_participant_modality": [],
+    "modality_counts": {
+      "activity": 13,
+      "basal_insulin": 12,
+      "bolus_insulin": 13,
+      "glucose": 13,
+      "nutrition": 13,
+      "sleep_summary": 11,
+      "sleep_timeseries": 11
+    }
+  },
+  "physical_schema": {
+    "status": "PASS",
+    "failure_count": 0,
+    "failures": []
+  },
+  "runtime_contract": {
+    "status": "PASS",
+    "failure_count": 0,
+    "failures": []
+  },
+  "sleep_contract": {
+    "sleep_summary_filename": "UoM####sleeptime.csv",
+    "sleep_summary_physical_schema": "sleep_summary",
+    "sleep_timeseries_filename": "UoMsleep####.csv",
+    "sleep_timeseries_physical_schema": "sleep_timeseries",
+    "single_sleep_gru_source": "sleep_timeseries",
+    "additional_sleep_gru": false,
+    "status": "PASS"
+  },
+  "insulin_contract": {
+    "single_branch": true,
+    "physical_sources": [
+      "basal_insulin",
+      "bolus_insulin"
+    ],
+    "runtime_features": [
+      "dose",
+      "event_type"
+    ],
+    "event_type_policy": {
+      "basal_insulin": 0,
+      "bolus_insulin": 1
+    },
+    "event_type_constructed_by_audit": false
+  },
+  "architecture": {
+    "glucose": "GRU -> zG",
+    "insulin": "GRU -> zI",
+    "nutrition": "GRU -> zN",
+    "activity": "GRU -> zA",
+    "sleep": "GRU -> zS",
+    "fusion": "zG,zI,zN,zA,zS -> MLP Fusion",
+    "unified_state": "MLP Fusion -> Unified Patient State",
+    "digital_twin": "Unified Patient State -> DIGITAL TWIN",
+    "prediction": "DIGITAL TWIN -> Prediction / What-if",
+    "ui": "Prediction / What-if -> Interactive UI"
+  },
+  "summary": {
+    "inventory_pass": true,
+    "identification_pass": true,
+    "cohort_pass": true,
+    "modality_count_pass": true,
+    "physical_schema_pass": true,
+    "runtime_contract_pass": true,
+    "sleep_contract_pass": true,
+    "overall_pass": true
+  },
+  "scope_controls": {
+    "dataset_modified": false,
+    "sequence_inputs_modified": false,
+    "values_transformed": false,
+    "rows_deleted": false,
+    "rows_added": false,
+    "resampling_performed": false,
+    "interpolation_performed": false,
+    "imputation_performed": false,
+    "normalization_performed": false,
+    "feature_engineering_performed": false,
+    "categorical_encoding_performed": false,
+    "event_type_constructed": false,
+    "windows_created": false,
+    "targets_created": false,
+    "model_trained": false,
+    "mlp_fusion_implemented": false,
+    "digital_twin_implemented": false,
+    "prediction_implemented": false,
+    "what_if_implemented": false,
+    "interactive_ui_implemented": false
+  },
+  "files": [
+    {
+      "relative_path": "Activity Data\\UoMActivity2301.csv",
+      "filename": "UoMActivity2301.csv",
+      "participant": "UoM2301",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2302.csv",
+      "filename": "UoMActivity2302.csv",
+      "participant": "UoM2302",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2304.csv",
+      "filename": "UoMActivity2304.csv",
+      "participant": "UoM2304",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2305.csv",
+      "filename": "UoMActivity2305.csv",
+      "participant": "UoM2305",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2306.csv",
+      "filename": "UoMActivity2306.csv",
+      "participant": "UoM2306",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2307.csv",
+      "filename": "UoMActivity2307.csv",
+      "participant": "UoM2307",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2308.csv",
+      "filename": "UoMActivity2308.csv",
+      "participant": "UoM2308",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2309.csv",
+      "filename": "UoMActivity2309.csv",
+      "participant": "UoM2309",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2313.csv",
+      "filename": "UoMActivity2313.csv",
+      "participant": "UoM2313",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2314.csv",
+      "filename": "UoMActivity2314.csv",
+      "participant": "UoM2314",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2401.csv",
+      "filename": "UoMActivity2401.csv",
+      "participant": "UoM2401",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2403.csv",
+      "filename": "UoMActivity2403.csv",
+      "participant": "UoM2403",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Activity Data\\UoMActivity2405.csv",
+      "filename": "UoMActivity2405.csv",
+      "participant": "UoM2405",
+      "physical_modality": "activity",
+      "filename_rule": "^UoMActivity(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "activity_ts",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "motion_intensity_mean",
+          "motion_intensity_max",
+          "activity_type",
+          "intensity"
+        ],
+        "actual_columns": [
+          "activity_ts",
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Activity",
+        "latent": "zA",
+        "input_dim": 12,
+        "runtime_features": [
+          "activity_type",
+          "active_Kcal",
+          "step_count",
+          "distance_m",
+          "duration_s",
+          "active_time_s",
+          "start_time_s",
+          "start_time_offset_s",
+          "met",
+          "intensity",
+          "motion_intensity_mean",
+          "motion_intensity_max"
+        ],
+        "physical_sources": {
+          "activity_type": "activity.activity_type",
+          "active_Kcal": "activity.active_Kcal",
+          "step_count": "activity.step_count",
+          "distance_m": "activity.distance_m",
+          "duration_s": "activity.duration_s",
+          "active_time_s": "activity.active_time_s",
+          "start_time_s": "activity.start_time_s",
+          "start_time_offset_s": "activity.start_time_offset_s",
+          "met": "activity.met",
+          "intensity": "activity.intensity",
+          "motion_intensity_mean": "activity.motion_intensity_mean",
+          "motion_intensity_max": "activity.motion_intensity_max"
+        },
+        "requires_encoding": [
+          "activity_type",
+          "intensity"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2301.csv",
+      "filename": "UoMGlucose2301.csv",
+      "participant": "UoM2301",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2302.csv",
+      "filename": "UoMGlucose2302.csv",
+      "participant": "UoM2302",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2304.csv",
+      "filename": "UoMGlucose2304.csv",
+      "participant": "UoM2304",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2305.csv",
+      "filename": "UoMGlucose2305.csv",
+      "participant": "UoM2305",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2306.csv",
+      "filename": "UoMGlucose2306.csv",
+      "participant": "UoM2306",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2307.csv",
+      "filename": "UoMGlucose2307.csv",
+      "participant": "UoM2307",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2308.csv",
+      "filename": "UoMGlucose2308.csv",
+      "participant": "UoM2308",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2309.csv",
+      "filename": "UoMGlucose2309.csv",
+      "participant": "UoM2309",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2313.csv",
+      "filename": "UoMGlucose2313.csv",
+      "participant": "UoM2313",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2314.csv",
+      "filename": "UoMGlucose2314.csv",
+      "participant": "UoM2314",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2401.csv",
+      "filename": "UoMGlucose2401.csv",
+      "participant": "UoM2401",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2403.csv",
+      "filename": "UoMGlucose2403.csv",
+      "participant": "UoM2403",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Glucose Data\\UoMGlucose2405.csv",
+      "filename": "UoMGlucose2405.csv",
+      "participant": "UoM2405",
+      "physical_modality": "glucose",
+      "filename_rule": "^UoMGlucose(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "actual_columns": [
+          "bg_ts",
+          "value"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Glucose",
+        "latent": "zG",
+        "input_dim": 1,
+        "runtime_features": [
+          "value"
+        ],
+        "physical_sources": {
+          "value": "glucose.value"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2302.csv",
+      "filename": "UoMBasal2302.csv",
+      "participant": "UoM2302",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2304.csv",
+      "filename": "UoMBasal2304.csv",
+      "participant": "UoM2304",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2305.csv",
+      "filename": "UoMBasal2305.csv",
+      "participant": "UoM2305",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2306.csv",
+      "filename": "UoMBasal2306.csv",
+      "participant": "UoM2306",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2307.csv",
+      "filename": "UoMBasal2307.csv",
+      "participant": "UoM2307",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2308.csv",
+      "filename": "UoMBasal2308.csv",
+      "participant": "UoM2308",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2309.csv",
+      "filename": "UoMBasal2309.csv",
+      "participant": "UoM2309",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2313.csv",
+      "filename": "UoMBasal2313.csv",
+      "participant": "UoM2313",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2314.csv",
+      "filename": "UoMBasal2314.csv",
+      "participant": "UoM2314",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2401.csv",
+      "filename": "UoMBasal2401.csv",
+      "participant": "UoM2401",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2403.csv",
+      "filename": "UoMBasal2403.csv",
+      "participant": "UoM2403",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Basal Data\\UoMBasal2405.csv",
+      "filename": "UoMBasal2405.csv",
+      "participant": "UoM2405",
+      "physical_modality": "basal_insulin",
+      "filename_rule": "^UoMBasal(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "actual_columns": [
+          "basal_ts",
+          "basal_dose",
+          "insulin_kind"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Basal rows map to dose and event_type=0.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2301.csv",
+      "filename": "UoMBolus2301.csv",
+      "participant": "UoM2301",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2302.csv",
+      "filename": "UoMBolus2302.csv",
+      "participant": "UoM2302",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2304.csv",
+      "filename": "UoMBolus2304.csv",
+      "participant": "UoM2304",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2305.csv",
+      "filename": "UoMBolus2305.csv",
+      "participant": "UoM2305",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2306.csv",
+      "filename": "UoMBolus2306.csv",
+      "participant": "UoM2306",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2307.csv",
+      "filename": "UoMBolus2307.csv",
+      "participant": "UoM2307",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2308.csv",
+      "filename": "UoMBolus2308.csv",
+      "participant": "UoM2308",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2309.csv",
+      "filename": "UoMBolus2309.csv",
+      "participant": "UoM2309",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2313.csv",
+      "filename": "UoMBolus2313.csv",
+      "participant": "UoM2313",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2314.csv",
+      "filename": "UoMBolus2314.csv",
+      "participant": "UoM2314",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2401.csv",
+      "filename": "UoMBolus2401.csv",
+      "participant": "UoM2401",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2403.csv",
+      "filename": "UoMBolus2403.csv",
+      "participant": "UoM2403",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Insulin Data\\Bolus Data\\UoMBolus2405.csv",
+      "filename": "UoMBolus2405.csv",
+      "participant": "UoM2405",
+      "physical_modality": "bolus_insulin",
+      "filename_rule": "^UoMBolus(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "actual_columns": [
+          "bolus_ts",
+          "bolus_dose"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Insulin",
+        "latent": "zI",
+        "input_dim": 2,
+        "runtime_features": [
+          "dose",
+          "event_type"
+        ],
+        "physical_sources": {
+          "dose": [
+            "basal_insulin.basal_dose",
+            "bolus_insulin.bolus_dose"
+          ],
+          "event_type": [
+            "DERIVED_FROM_SOURCE_MODALITY"
+          ]
+        },
+        "requires_encoding": [],
+        "derived_features": [
+          "event_type"
+        ],
+        "notes": [
+          "Bolus rows map to dose and event_type=1.",
+          "Both physical insulin modalities feed ONE Insulin GRU.",
+          "event_type is a future derived runtime field; this audit does not construct it."
+        ]
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2301.csv",
+      "filename": "UoMNutrition2301.csv",
+      "participant": "UoM2301",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2302.csv",
+      "filename": "UoMNutrition2302.csv",
+      "participant": "UoM2302",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2304.csv",
+      "filename": "UoMNutrition2304.csv",
+      "participant": "UoM2304",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2305.csv",
+      "filename": "UoMNutrition2305.csv",
+      "participant": "UoM2305",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2306.csv",
+      "filename": "UoMNutrition2306.csv",
+      "participant": "UoM2306",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2307.csv",
+      "filename": "UoMNutrition2307.csv",
+      "participant": "UoM2307",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2308.csv",
+      "filename": "UoMNutrition2308.csv",
+      "participant": "UoM2308",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2309.csv",
+      "filename": "UoMNutrition2309.csv",
+      "participant": "UoM2309",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2313.csv",
+      "filename": "UoMNutrition2313.csv",
+      "participant": "UoM2313",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2314.csv",
+      "filename": "UoMNutrition2314.csv",
+      "participant": "UoM2314",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2401.csv",
+      "filename": "UoMNutrition2401.csv",
+      "participant": "UoM2401",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2403.csv",
+      "filename": "UoMNutrition2403.csv",
+      "participant": "UoM2403",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Nutrition Data\\UoMNutrition2405.csv",
+      "filename": "UoMNutrition2405.csv",
+      "participant": "UoM2405",
+      "physical_modality": "nutrition",
+      "filename_rule": "^UoMNutrition(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "meal_ts",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "actual_columns": [
+          "meal_ts",
+          "meal_type",
+          "meal_tag",
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Nutrition",
+        "latent": "zN",
+        "input_dim": 6,
+        "runtime_features": [
+          "carbs_g",
+          "prot_g",
+          "fat_g",
+          "fibre_g",
+          "meal_type",
+          "meal_tag"
+        ],
+        "physical_sources": {
+          "carbs_g": "nutrition.carbs_g",
+          "prot_g": "nutrition.prot_g",
+          "fat_g": "nutrition.fat_g",
+          "fibre_g": "nutrition.fibre_g",
+          "meal_type": "nutrition.meal_type",
+          "meal_tag": "nutrition.meal_tag"
+        },
+        "requires_encoding": [
+          "meal_type",
+          "meal_tag"
+        ],
+        "derived_features": [],
+        "notes": []
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2302sleeptime.csv",
+      "filename": "UoM2302sleeptime.csv",
+      "participant": "UoM2302",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2304sleeptime.csv",
+      "filename": "UoM2304sleeptime.csv",
+      "participant": "UoM2304",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2306sleeptime.csv",
+      "filename": "UoM2306sleeptime.csv",
+      "participant": "UoM2306",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2307sleeptime.csv",
+      "filename": "UoM2307sleeptime.csv",
+      "participant": "UoM2307",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2308sleeptime.csv",
+      "filename": "UoM2308sleeptime.csv",
+      "participant": "UoM2308",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2309sleeptime.csv",
+      "filename": "UoM2309sleeptime.csv",
+      "participant": "UoM2309",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2313sleeptime.csv",
+      "filename": "UoM2313sleeptime.csv",
+      "participant": "UoM2313",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2314sleeptime.csv",
+      "filename": "UoM2314sleeptime.csv",
+      "participant": "UoM2314",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2401sleeptime.csv",
+      "filename": "UoM2401sleeptime.csv",
+      "participant": "UoM2401",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2403sleeptime.csv",
+      "filename": "UoM2403sleeptime.csv",
+      "participant": "UoM2403",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoM2405sleeptime.csv",
+      "filename": "UoM2405sleeptime.csv",
+      "participant": "UoM2405",
+      "physical_modality": "sleep_summary",
+      "filename_rule": "^UoM(?P<participant>\\d{4})sleeptime\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "start_date_ts",
+          "duration_in_sec",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "calendar_date",
+          "validation",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable"
+        ],
+        "actual_columns": [
+          "calendar_date",
+          "duration_in_sec",
+          "start_date_ts",
+          "start_time_offset_s",
+          "unmeasurable_sleep_s",
+          "deep_sleep_s",
+          "light_sleep_s",
+          "rem_sleep_s",
+          "awake_s",
+          "sleep_levels_map_deep",
+          "sleep_levels_map_light",
+          "sleep_levels_map_awake",
+          "sleep_levels_map_rem",
+          "sleep_levels_map_unmeasurable",
+          "validation"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "SleepSummaryReference",
+        "latent": null,
+        "input_dim": null,
+        "runtime_features": [],
+        "physical_sources": {},
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "Audited physical schema only.",
+          "Not a second Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2301.csv",
+      "filename": "UoMsleep2301.csv",
+      "participant": "UoM2301",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2302.csv",
+      "filename": "UoMsleep2302.csv",
+      "participant": "UoM2302",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2304.csv",
+      "filename": "UoMsleep2304.csv",
+      "participant": "UoM2304",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2305.csv",
+      "filename": "UoMsleep2305.csv",
+      "participant": "UoM2305",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2306.csv",
+      "filename": "UoMsleep2306.csv",
+      "participant": "UoM2306",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2307.csv",
+      "filename": "UoMsleep2307.csv",
+      "participant": "UoM2307",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2308.csv",
+      "filename": "UoMsleep2308.csv",
+      "participant": "UoM2308",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2309.csv",
+      "filename": "UoMsleep2309.csv",
+      "participant": "UoM2309",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2313.csv",
+      "filename": "UoMsleep2313.csv",
+      "participant": "UoM2313",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2401.csv",
+      "filename": "UoMsleep2401.csv",
+      "participant": "UoM2401",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    },
+    {
+      "relative_path": "Sleep Data\\UoMsleep2405.csv",
+      "filename": "UoMsleep2405.csv",
+      "participant": "UoM2405",
+      "physical_modality": "sleep_timeseries",
+      "filename_rule": "^UoMsleep(?P<participant>\\d{4})\\.csv$",
+      "identification_status": "PASS",
+      "schema_status": "PASS",
+      "schema": {
+        "status": "PASS",
+        "expected_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "actual_columns": [
+          "sleep_ts",
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": []
+      },
+      "runtime": {
+        "status": "PASS",
+        "branch": "Sleep",
+        "latent": "zS",
+        "input_dim": 6,
+        "runtime_features": [
+          "step_count",
+          "heart_rate",
+          "current_activity_type_intensity",
+          "stress_level_value",
+          "sleep_level",
+          "resting_heart_rate"
+        ],
+        "physical_sources": {
+          "step_count": "sleep_timeseries.step_count",
+          "heart_rate": "sleep_timeseries.heart_rate",
+          "current_activity_type_intensity": "sleep_timeseries.current_activity_type_intensity",
+          "stress_level_value": "sleep_timeseries.stress_level_value",
+          "sleep_level": "sleep_timeseries.sleep_level",
+          "resting_heart_rate": "sleep_timeseries.resting_heart_rate"
+        },
+        "requires_encoding": [],
+        "derived_features": [],
+        "notes": [
+          "sleep_timeseries is the sole source for the Sleep GRU."
+        ]
+      }
+    }
+  ]
+}
