@@ -1,0 +1,48 @@
+project:
+  name: "Diabetes Digital Twin"
+  version: "0.1.0"
+  random_seed: 42
+
+dataset:
+  name: "T1D-UOM"
+  version: "1.0.3"
+  root_dir: "data/raw/t1d_uom_v1.0.3"
+
+modalities:
+  glucose:
+    enabled: true
+    model: "GRU"
+
+  insulin:
+    enabled: true
+    model: "GRU"
+
+  nutrition:
+    enabled: true
+    model: "GRU"
+
+  activity:
+    enabled: true
+    model: "GRU"
+
+  sleep:
+    enabled: true
+    model: "GRU"
+
+fusion:
+  model: "MLP"
+  embedding_dim: 128
+
+training:
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  max_epochs: 100
+  patience: 10
+
+evaluation:
+  prediction_horizon_minutes: 30
+
+paths:
+  reports: "reports"
+  checkpoints: "checkpoints"
